@@ -6,6 +6,7 @@ $(document).ready(function ($) {
 
     $(button).on('click', function (e) {
       
+      
         e.preventDefault();
 
         let name = document.getElementById("name"),
