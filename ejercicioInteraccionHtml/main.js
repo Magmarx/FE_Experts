@@ -6,7 +6,7 @@ $(document).ready(function ($) {
 
     $(button).on('click', function (e) {
 
-      
+
       
         e.preventDefault();
 
@@ -39,7 +39,7 @@ $(document).ready(function ($) {
                 greeting: greeting.innerText
             };
 
-        alert(JSON.stringify(jsonData));
+        alert(JSON.stringify(jsonData));   //mensaje que se muetra en la pantalla 
 
       });
 
@@ -47,6 +47,7 @@ $(document).ready(function ($) {
       data.forEach(slider => {
           let mainSlider = document.getElementById("mainSlider"),
               liSlider = document.createElement("LI");
+
 
           liSlider.innerText = `${slider.name.first} ${slider.name.last}`
           liSlider.style = `background-image: url(${slider.image}); font-size: 30px;
@@ -57,6 +58,7 @@ $(document).ready(function ($) {
           $(liSlider).on('click', function (e) {
       
               e.preventDefault();
+       
 
               let name = document.getElementById("name"),
                   lastname = document.getElementById("lastname"),
@@ -78,12 +80,30 @@ $(document).ready(function ($) {
                   addressLabel = $("#address").prev('label'),
                   balanceLabel = $("#balance").prev('label'),
                   inDateLabel = $("#inDate").prev('label'),
+                  intag = $("#inD").prev('label'),
                   eyesLabel = $("#eyes").prev('label'),
                   companyLabel = $("#company").prev('label'),
                   phoneLabel = $("#phone").prev('label'),
                   fruitLabel = $("#fruit").prev('label'),
                   aboutLabel = $("#about").prev('label'),
                   selectedUser  = users.filter(user => (`${user.name.first} ${user.name.last}`) === this.innerText)[0];
+
+                  // document.getElementById("inD").childNodes.forEach(opcion =>{
+                  //   document.getElementById("inD").removeChild(opcion)
+                  // })
+              document.getElementById("inD").innerHTML = ""
+
+
+              selectedUser.tags.forEach(nuevo => {
+                // <option value="volvo">Volvo</option>
+                //<option>aute</option>
+                let option = document.createElement("option");
+                option.innerText = nuevo;
+                option.value = nuevo; 
+                document.getElementById("inD").appendChild(option);
+
+              })
+
 
               //Mover las etiquetas hacia abajo de la primera pantalla
               nameLabel.addClass('active highlight');
@@ -93,6 +113,8 @@ $(document).ready(function ($) {
               addressLabel.addClass('active highlight');
               balanceLabel.addClass('active highlight');
               inDateLabel.addClass('active highlight');
+              intag.addClass('active highlight');
+            
 
               //Mover las etiquetas hacia abajo de la segunda pantalla
 

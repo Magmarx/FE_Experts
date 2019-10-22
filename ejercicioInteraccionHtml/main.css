@@ -68,7 +68,7 @@ a.control_next {
 /* Estilos del formulario  */
 
 body {
-  background:#0277bd;
+  background:#6A7ACD;
   font-family: 'Titillium Web', sans-serif;
 }
 
@@ -79,17 +79,17 @@ a {
 }
 
 a:hover {
-    color:#fafafa;
+    color:ffffff;
 }
 
 .form {
-  background: #13232f;
+  background: #304F91;
   opacity: 0.9;
   padding: 40px;
   max-width:600px;
   margin:40px auto;
   border-radius:4px;
-  box-shadow:0 4px 10px 4px #13232f;
+  box-shadow:0 4px 10px 4px #304F91;
 }
 
 .tab-group {
@@ -105,8 +105,8 @@ a:hover {
     display:block;
     text-decoration:none;
     padding:15px;
-    background:rgba(#a0b3b0,.25);
-    color:#a0b3b0;
+    background:rgba(#091B16,.25);
+    color:#091B16;
     font-size:20px;
     float:left;
     width:50%;
@@ -116,12 +116,13 @@ a:hover {
   }
 
   .tab-group-child:hover {
-    background:#004c8c;
+    background:#6A7ACDs;
     color:#ffffff;
   }
 
   .tab-group .active {
-    background:#000051;
+    background:#7CD043
+    ;
   }
 
   .tab-group-a {
@@ -162,7 +163,7 @@ label {
 
 label.req {
     margin:2px;
-    color:#1ab188;
+    color:#71D0C3;
 }
 
 label.active {
@@ -180,7 +181,7 @@ label.highlight {
 	color:#ffffff;
 }
 
-input, textarea {
+input, textarea, select {
   font-size:22px;
   display:block;
   width:100%;
@@ -189,7 +190,7 @@ input, textarea {
   background:none;
   background-image:none;
   border:1px solid #a0b3b0;
-  color:#ffffff;
+  color:#7CD043;
   border-radius:0;
   transition:border-color .25s ease, box-shadow .25s ease;
   /* &:focus {
@@ -234,7 +235,7 @@ textarea {
   font-weight:600;
   text-transform:uppercase;
   letter-spacing:.1em;
-  background:#004ba0;
+  background:#7CD043;
   color:#ffffff;
   transition:all.5s ease;
   -webkit-appearance: none;
