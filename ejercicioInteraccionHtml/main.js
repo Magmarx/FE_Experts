@@ -5,6 +5,7 @@ $(document).ready(function ($) {
     let button = document.getElementById("getStarted");
 
     $(button).on('click', function (e) {
+
       
       
         e.preventDefault();
