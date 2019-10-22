@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <link rel="stylesheet" href="main.css">
+    <script src="main.js"></script>
+    <title>Data control</title>
+</head>
+
+<body>
+    <h1>Control de datos para los usuarios</h1>
+    <div id="slider">
+        <a href="#" class="control_next">>></a>
+        <a href="#" class="control_prev">
+            << </a> <ul id="mainSlider">
+                <li>Listado de usuarios</li>
+                <li>Fin de los slides</li>
+
+                </ul>
+    </div>
+
+    <div class="form">
+
+        <ul class="tab-group">
+            <li class="tab-group-child tab active"><a class="tab-group-a" href="#signup">Principal</a></li>
+            <li class="tab-group-child tab"><a class="tab-group-a" href="#login">Secundario</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div id="signup">
+                <h1>Informacion principal</h1>
+                <h5 id="greeting"></h5>
+
+                <form action="/" method="post">
+
+                    <div class="top-row">
+                        <div class="field-wrap">
+                            <label>
+                                Nombre<span class="req">*</span>
+                            </label>
+                            <input id="name" type="text" required autocomplete="off" />
+                        </div>
+
+                        <div class="field-wrap">
+                            <label>
+                                Apellido<span class="req">*</span>
+                            </label>
+                            <input id="lastname" type="text" required autocomplete="off" />
+                        </div>
+                    </div>
+
+                    <div class="field-wrap">
+                        <label>
+                            Edad<span class="req">*</span>
+                        </label>
+                        <input id="age" type="number" required autocomplete="off" />
+                    </div>
+
+                    <div class="field-wrap">
+                        <label>
+                            Correo electronico<span class="req">*</span>
+                        </label>
+                        <input id="email" type="email" required autocomplete="off" />
+                    </div>
+
+                    <div class="field-wrap">
+                        <label>
+                            Direccion<span class="req">*</span>
+                        </label>
+                        <textarea id="address" required autocomplete="off"></textarea>
+                    </div>
+
+                    <div class="field-wrap">
+                        <label>
+                            Activos<span class="req">*</span>
+                        </label>
+                        <input id="balance" type="number" required autocomplete="off" />
+                    </div>
+
+                    <div class="field-wrap">
+                        <label>
+                            Fecha de registro<span class="req">*</span>
+                        </label>
+                        <input id="inDate" type="text" required autocomplete="off" />
+                    </div>
+
+
+
+                    <button id="getStarted" class="button button-block" />Get Started</button>
+
+                </form>
+
+            </div>
+
+            <div id="login">
+                <h1>Informacion secundaria</h1>
+
+                <form action="/" method="post">
+
+                    <div class="field-wrap">
+                        <label>
+                            Color de sus ojos<span class="req">*</span>
+                        </label>
+                        <input id="eyes" type="text" required autocomplete="off" />
+                    </div>
+
+                    <div class="field-wrap">
+                        <label>
+                            Compañia para la que labora<span class="req">*</span>
+                        </label>
+                        <input id="company" type="text" required autocomplete="off" />
+                    </div>
+
+                    <div class="field-wrap">
+                        <label>
+                            Numero de telefono <span class="req">*</span>
+                        </label>
+                        <input id="phone" type="text" required autocomplete="off" />
+                    </div>
+
+                    <div class="field-wrap">
+                        <label>
+                            fruta favorita <span class="req">*</span>
+                        </label>
+                        <input id="fruit" type="text" required autocomplete="off" />
+                    </div>
+
+                    <div class="field-wrap">
+                        <label>
+                            Acerca de la persona <span class="req">*</span>
+                        </label>
+                        <textarea id="about" required autocomplete="off"></textarea>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div><!-- tab-content -->
+
+    </div> <!-- /form -->
+
+
+</body>
+
+</html>
