@@ -1,51 +1,77 @@
 $(document).ready(function ($) {
-    let buttonGen = document.getElementById('submitGen');
-    let buttonNext = document.getElementById('submitNext');
-    let buttonPrev = document.getElementById('submitPrev');
-    let detailedLeft = document.getElementById('detailedLeft');
-    let detailedRight = document.getElementById('detailedRight');
-    fetch('https://next.json-generator.com/api/json/get/4Jfe8YWYP')
-    .then(function (response) {
+    let buttonGen = document.getElementById('submitGen'),
+        buttonNext = document.getElementById('submitNext'),
+        buttonPrev = document.getElementById('submitPrev'),
+        detailedLeft = document.getElementById('detailedLeft'),
+        detailedRight = document.getElementById('detailedRight'),
+        posicion = 0,
+        longitud;
+
+
+
+    let funcFetch = (position) => {
+        fetch('https://next.json-generator.com/api/json/get/4Jfe8YWYP').then(function (response) {
             return response.json();
-        })
-        .then(function (Json) {
-            Json.forEach(element => {
-                console.log(element);
-            });
+        }).then(function (Json) {
+            console.log(Json[position]);
+            longitud = Json.length;
+            let objeto = Json[position];
+            completeForm(objeto);
         });
+    }
 
-        
-
-    $(buttonGen).on('click', function ($) {
-        if(buttonGen.disabled === false){
+    $(buttonGen).on('click', function () {
+        if (buttonGen.disabled === false) {
             buttonGen.value = 'Detailed';
             buttonGen.disabled = true;
             buttonNext.disabled = false;
             buttonPrev.disabled = false;
             createDetailed();
+            funcFetch(posicion);
+        }
+    });
+    $(buttonNext).on('click', function () {
+        if(posicion === longitud - 1){
+            posicion = 0;
+            funcFetch(posicion);
+        }else{
+            posicion -= -1;
+            funcFetch(posicion);
+        }
+    });
+    $(buttonPrev).on('click', function () {
+        if(posicion === 0){
+            posicion = longitud - 1;
+            funcFetch(posicion);
+        }else{
+            posicion += -1;
+            funcFetch(posicion);
         }
     });
 
     let createDetailed = () => {
-        let br1 = document.createElement('br');
-        let br2 = document.createElement('br');
-        let input = document.createElement('input');
-        let input2 = document.createElement('input');
-        let textarea = document.createElement('textarea');
-        
+        let br1 = document.createElement('br'),
+            br2 = document.createElement('br'),
+            input = document.createElement('input'),
+            input2 = document.createElement('input'),
+            textarea = document.createElement('textarea');
+
         input.className = 'form';
-        input.placeholder = 'registred';
-        input.name = 'registred';
+        input.placeholder = 'registered';
+        input.name = 'registered';
+        input.id = 'registered';
         input.type = 'text';
 
         input2.className = 'form';
         input2.placeholder = 'id';
         input2.name = 'id';
+        input2.id = 'id';
         input2.type = 'text';
-        
+
         textarea.className = 'form textarea';
         textarea.placeholder = 'tags';
         textarea.name = 'tags';
+        textarea.id = 'tags';
         textarea.style = 'max-height: 125px;'
 
         detailedLeft.appendChild(br1);
@@ -54,6 +80,16 @@ $(document).ready(function ($) {
         detailedRight.appendChild(br2);
         detailedRight.appendChild(textarea);
     };
+
+    let completeForm = (obj) =>{
+        document.getElementById("name").value = `${obj.name.first} ${obj.name.last}`;
+        document.getElementById("mail").value = obj.email;
+        document.getElementById("address").value = obj.address;
+        document.getElementById("about").value = obj.about;
+        document.getElementById("registered").value = obj.registered;
+        document.getElementById("id").value = obj._id;
+        document.getElementById("tags").value = obj.tags;
+    }
 })
 
 
