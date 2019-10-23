@@ -44,6 +44,7 @@ $(document).ready(function(){
             contImg.appendChild(img);
         
     });
+
 });
     
 
@@ -65,11 +66,14 @@ function Carusel(){
         }else{
             contImg.className = 'carousel-item';
         }
-        imgCarusel.className = 'd-block w-100';
-        imgCarusel.src = element.image;        
+
+        imgCarusel.className = 'd-block w-100 imgCarusel';
+        imgCarusel.src = element.image;
 
         contCarusel.appendChild(contImg);
         contImg.appendChild(imgCarusel);
+
+        console.log(element.name.first)
 
         contador ++;
        });
@@ -77,5 +81,4 @@ function Carusel(){
     }).catch(error =>{
         console.log('ERROR: ' + error);
     });
-
 }
