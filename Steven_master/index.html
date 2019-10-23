@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Control</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="index.js"></script>
+</head>
+
+<body>
+    <div id="slider" class="center container">
+        <img src="" id="imagen" alt="">
+        <a href="#" class="control_next">>></a>
+        <a href="#" class="control_prev">
+            << </a> <ul id="mainSlider">
+                <li>Listado de usuarios</li>
+                <li>Fin de los slides</li>
+                </ul>
+    </div>
+
+    <div class="fondo container center">
+        <ul class="tab-group">
+            <li id="first" class="tab-group-child tab active" onclick="activar()"><a class="tab-group-a"
+                    style="text-decoration: none;" href="#signup">Principal</a></li>
+            <li id="second" class="tab-group-child tab" onclick="activar2()"><a class="tab-group-a"
+                    href="#login">Secundario</a></li>
+        </ul>
+
+        <div id="primer">
+            <div>
+                <h1>Información Principal</h1>
+            </div>
+            <form action="/" method="POST">
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" name="" id="nombre" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Apellido:</label>
+                    <input type="text" name="" id="apellido" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Edad:</label>
+                    <input type="text" name="" id="edad" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input type="email" name="" id="email" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Dirección:</label>
+                    <textarea name="" id="direccion" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Activos:</label>
+                    <input type="text" name="" id="activos" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Fecha de registro:</label>
+                    <input type="text" name="" id="fechaR" class="form-control">
+                </div>
+                <input type="button" onclick="mostrarjson()" value="Aceptar"></input>
+            </form>
+        </div>
+
+        
+
+        <div id="segundo" class="none">
+            <div>
+                <h1>Información Secundaria</h1>
+            </div>
+            <form action="/" method="POST">
+                <div class="form-group">
+                    <label>Color de ojos:</label>
+                    <input type="text" name="" id="ojos" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Compañia:</label>
+                    <input type="text" name="" id="compania" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Teléfono:</label>
+                    <input type="text" name="" id="telefono" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Fruta:</label>
+                    <input type="text" name="" id="fruta" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Acerca de la perosna:</label>
+                    <textarea name="" id="acerca" class="form-control"></textarea>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
