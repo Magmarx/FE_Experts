@@ -8,13 +8,14 @@
 
 </head>
 
-<body>
+<body  data-toggle="modal" data-target="#miModal">
     <!-- partial:index.partial.html -->
 
     <head>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
         <script src="main.js"></script>
+
     </head>
     <br />
     <div class="inner contact">
@@ -40,16 +41,21 @@
                 <div class="relative fullwidth col-xs-12">
                     <!-- Send Button -->
                     <div class="col-xs-2"></div>
-                    <input type="button" id="submitPrev" name="submitPrev" class="form-btn semibold col-xs-2" value="Prev" disabled>
+                    <input type="button" id="submitPrev" name="submitPrev" class="form-btn semibold col-xs-2"
+                        value="Prev" disabled>
                     <div class="col-xs-1"></div>
-                    <input type="button" id="submitGen" name="submitGen" class="form-btn semibold col-xs-3" value="Generate">
+                    <input type="button" id="submitGen" name="submitGen" class="form-btn semibold col-xs-3"
+                        value="Generate">
                     <div class="col-xs-1"></div>
-                    <input type="button" id="submitNext" name="submitNext" class="form-btn semibold col-xs-2" value="Next" disabled>
+                    <input type="button" id="submitNext" name="submitNext" class="form-btn semibold col-xs-2"
+                        value="Next" disabled>
                 </div><!-- End Bottom Submit -->
                 <!-- Clear -->
-                <div  id="detailedLeft" class="col-xs-6 wow animated slideInLeft" data-wow-delay=".5s"></div><!-- End Left Inputs -->
+                <div id="detailedLeft" class="col-xs-6 wow animated slideInLeft" data-wow-delay=".5s"></div>
+                <!-- End Left Inputs -->
                 <!-- Right Inputs -->
-                <div id="detailedRight" class="col-xs-6 wow animated slideInRight" data-wow-delay=".5s"></div><!-- End Right Inputs -->
+                <div id="detailedRight" class="col-xs-6 wow animated slideInRight" data-wow-delay=".5s"></div>
+                <!-- End Right Inputs -->
             </form>
 
             <!-- Your Mail Message -->
@@ -63,9 +69,30 @@
         </div><!-- End Contact Form Area -->
     </div><!-- End Inner -->
 
-
-    <!-- partial -->
-
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#miModal">
+        Abrir modal
+    </button>
+    <!-- Modal -->
+    <div class="modal fade" id="miModal" tabindex="1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+        data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Esto es un modal</h4>
+                </div>
+                <div class="modal-body">
+                    Texto del modal
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </body>
 
 </html>

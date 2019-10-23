@@ -127,6 +127,10 @@ center{
   margin-top:330px;
 }
 input {
-    position: relative;
+  position: static;
+    z-index: 9999;
+}
+input[type='button'] {
+  position: static;
     z-index: 9999;
 }

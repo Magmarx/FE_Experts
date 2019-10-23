@@ -1,4 +1,7 @@
 $(document).ready(function ($) {
+    // document.getElementById('miModal').className = 'modal fade in';
+    // document.getElementById('miModal').style = 'display: block';
+
     let buttonGen = document.getElementById('submitGen'),
         buttonNext = document.getElementById('submitNext'),
         buttonPrev = document.getElementById('submitPrev'),
