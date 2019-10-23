@@ -1,0 +1,46 @@
+
+h1 {
+    color: rgba(31, 29, 28, 0.904);
+    text-align: center;
+    -webkit-transition: width 2s; 
+  transition: width 2s;
+  
+}
+ body {
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 20px;
+    text-align: auto;
+    margin: auto;
+    width: 50%;
+    border: 5px solid rgb(20, 124, 84);
+    padding: 10px;
+    border-radius: 20px;
+    
+
+ }
+ canvas {
+     border-block-color: red;
+ } 
+
+ a.derecha {
+    border-radius: 0 2px 2px 0;
+  }
+  
+  a.izquierda {
+    right: 0px;
+    border-radius: 2px 0 0 2px;
+  } 
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+ 
+
+
+
