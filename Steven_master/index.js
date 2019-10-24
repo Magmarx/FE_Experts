@@ -1,15 +1,6 @@
 const url = 'https://next.json-generator.com/api/json/get/4Jfe8YWYP';
 let s = [];
 
-// $(document).ready(function (datos) {
-//     let inputImage = document.getElementById("imagen");
-
-//     datos.forEach(slider => {
-//         inputImage.style.backgroundImage.url = `${slider.image}`;
-//     });
-
-// });
-
 $(document).ready(function ($) {
     var slideCount = $('#slider ul li').length;
     var slideWidth = $('#slider ul li').width();
@@ -87,8 +78,9 @@ function mostrar() {
                         FrutaFavorita: inputFruta.value,
                         AcercaDe: inputAcerca.value
                     };
-
-                    alert(JSON.stringify(Datos))
+                    let datoscon = JSON.stringify(Datos);
+                    let res = datoscon.split(",");
+                    alert(res)
         })
 };
 
@@ -169,4 +161,32 @@ function activar() {
     variable.className = "tab-group-child tab active";
     variable2.className = 'block';
     va2.className = 'none';
+}
+
+function borrar(){
+    let inputName = document.getElementById("nombre"),
+                    inputLast = document.getElementById("apellido"),
+                    inputEdad = document.getElementById("edad"),
+                    inputEmail = document.getElementById("email"),
+                    inputDireccion = document.getElementById("direccion"),
+                    inputActivos = document.getElementById("activos"),
+                    inputFechaRegistro = document.getElementById("fechaR"),
+                    inputOjos = document.getElementById("ojos"),
+                    inputCompania = document.getElementById("compania"),
+                    inputTelefono = document.getElementById("telefono"),
+                    inputFruta = document.getElementById("fruta"),
+                    inputAcerca = document.getElementById("acerca");
+
+                    inputName.value = "";
+                    inputLast.value = "";
+                    inputEdad.value = "";
+                    inputEmail.value = "";
+                    inputDireccion.value = "";
+                    inputActivos.value = "";
+                    inputFechaRegistro.value = "";
+                    inputOjos.value = "";
+                    inputCompania.value = "";
+                    inputTelefono.value = "";
+                    inputFruta.value = "";
+                    inputAcerca.value = "";
 }

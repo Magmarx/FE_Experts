@@ -33,7 +33,7 @@
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
             </a>
-            <a class="control_next" onclick="slider()">
+            <a class="control_next" onclick="slider()" id="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
             </a>
@@ -45,7 +45,7 @@
             <li id="first" class="tab-group-child tab active" onclick="activar()"><a class="tab-group-a"
                     style="text-decoration: none;" href="#signup">Principal</a></li>
             <li id="second" class="tab-group-child tab" onclick="activar2()"><a class="tab-group-a"
-                    href="#login">Secundario</a></li>
+                    href="#login">Secundaria</a></li>
         </ul>
 
         <div id="primer">
@@ -81,7 +81,10 @@
                     <label>Fecha de registro:</label>
                     <input type="text" name="" id="fechaR" class="form-control">
                 </div>
-                <input type="button" class="btn btn-success btn-block" value="Aceptar" onclick="mostrar()"></input>
+                <div class="container">
+                <input type="button" class="btn btn-danger btn-lg" value="Borrar Datos" onclick="borrar()"></input>
+                <input type="button" class="btn btn-success btn-lg" value="Insertar Datos" onclick="mostrar()"></input>
+            </div>
             </form>
         </div>
 
