@@ -12,9 +12,11 @@
 input[type=text], select, textarea {
   width: 100%;
   padding: 12px;
-  border: 1px solid rgb(12, 16, 233);
+  border: 1px solid rgb(21, 138, 31);
   border-radius: 4px;
   resize: vertical;
+  border-style: solid;
+  
 }
 
 label {
@@ -74,6 +76,8 @@ input[type=submit]:hover {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="proyec.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+     
     <title>Formulario</title>
 </head>
 <body style="background-image: linear-gradient(rgb(0, 204, 255), rgb(0, 47, 255));">
@@ -92,16 +96,16 @@ ctx.fillRect(0, 0, 80, 100);
 </script>
 </div>
 
-<p class="nico"> Ingrese sus Datos</p>
-    <div>
+<p class="nico"> Principal</p>
+    
         <div class="container">
-            <form action="/action_page.php">
+            <form action="/action_page" method="POST">
             <div class="row">
               <div class="col-25">
                 <label for="fname">Nombre</label>
               </div>
               <div class="col-75">
-                <input type="text" id="fname" name="fname" placeholder="Your name..">
+                <input type="text" id="fname" name="fname" placeholder="escribe tu nombre..">
               </div>
             </div>
             <div class="row">
@@ -109,48 +113,103 @@ ctx.fillRect(0, 0, 80, 100);
                 <label for="lname">Apellido</label>
               </div>
               <div class="col-75">
-                <input type="text" id="lname" name="Apellido" placeholder="Your last name..">
+                <input type="text" id="lname" name="Apellido" placeholder="escribe tu apellido..">
               </div>
             </div>
+            <div class="row">
             <div class="col-25">
               <label for="edad">Edad</label>
             </div>
             <div class="col-75"> 
-              <input type="text" id= "iedad" name="edad" placeholder="tu" >
+              <input type="text" id= "iedad" name="edad" placeholder=" escribe tu edad.." >
+            </div>
             </div>
             <div class="row">
               <div class="col-25">
-                <label for="country">genero</label>
+                <label for="correo"> Correo Electronico</label>
               </div>
-              <div class="col-75">
-                <select id="genero" name="genero">
-                  <option value="Hombre">Hombre</option>
-                  <option value="Mujer">Mujer</option>
-                  <option value="Indefinido">Indefinido</option>
-                </select>
-              </div>
+                <div class="col-75">
+                    <input type="text" id="icorreo" name="correo" placeholder="escribe tu correo..">
+                </div>
             </div>
             <div class="row">
               <div class="col-25">
-                <label for="subject">Subject</label>
+                <label for="direccion">Dirección</label>
               </div>
               <div class="col-75">
-                <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+                <input type="text" id="idreccion" name="direccion" placeholder="escribe tu dirreccion..">
               </div>
             </div>
             <div class="row">
-              <input type="submit" value="Submit">
+                <div class="col-25">
+                  <label for="activo">Activos</label>
+                </div>
+                <div class="col-75"> 
+                  <input type="text" id= "iactivo" name="activo" placeholder=" cuantos estan activos.." >
+                </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                      <label for="fregistro">Fecha Registro</label>
+                    </div>
+                    <div class="col-75"> 
+                      <input type="text" id= "iregistro" name="registro" placeholder=" fecha de registro.." >
+                    </div>
+                  </div>
+          </form>
+        </div>
+        <div id="second">
+          <p>Secundaria</p>
+          <div>
+            <div class="container">
+             
+              <form action="/action_page">
+                <div class="row">
+                  <div class="col-25">
+                    <label for="cojos">Color Ojos</label>
+                  </div>
+                  <div class="col-75">
+                    <input type="text" id="cojos" name="ojos" placeholder="escribe tu color de ojos..">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-25">
+                    <label for="company">compañia</label>
+                  </div>
+                  <div class="col-75">
+                    <input type="text" id="company" name="compañia" placeholder="escriba la compañia..">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-25">
+                    <label for="numero">No. Telefono</label>
+                  </div>
+                  <div class="col-75"> 
+                    <input type="text" id= "itelefono" name="numero" placeholder=" escribe tu no. telefonico.." >
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-25">
+                    <label for="fruta"> Fruta Favorita</label>
+                  </div>
+                  <div class="col-75">
+                    <input type="text" id="ifruta" name="fruta" placeholder="escribe tu fruta favorita..">
+                  </div>
+                </div>
+                <div class="row">
+                    <!-- <button id="getStarted" class="button button-block" >Get Started</button> -->
+                  <input type="submit" value="ingresar">
+                  </form>
             </div>
-            </form>
-          </div>
-        
+              
             
             <!-- <p>
               <button id= "boton" class="button-gel"> ingrese</button>
               <!-- <input type="submit"  class= "botton"value="GET STARTED"  > -->
               <!-- <input type="reset" value="Borrar"> -->
             <!-- </p> --> 
-         
+            <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
+            
     </div>
 </body>
 </html>
