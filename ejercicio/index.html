@@ -1,6 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <style>
+    p .nico{
+      font-style: italic;
+    }
+  * {
+  box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid rgb(12, 16, 233);
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #1686a1;
+  padding: 20px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+    }
+    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -8,8 +77,8 @@
     <title>Formulario</title>
 </head>
 <body style="background-image: linear-gradient(rgb(0, 204, 255), rgb(0, 47, 255));">
-    <h1>Formulacion</h1>  
-  <div><canvas id="myCanvas" class="canvas"></canvas>
+    <h1>Formulación</h1>  
+  <div><canvas id="myCanvas" class="canvas" > </canvas>
      <div id="slide">
       <a href="#"  class="derecha ">&#9664</a> 
      <a href="#" class="izquierda">&#9658</a>
@@ -23,22 +92,65 @@ ctx.fillRect(0, 0, 80, 100);
 </script>
 </div>
 
-    <div><p>ingrese sus datos</p>
-        <form action="ejemplo.php" method="get">
-            <p>Nombre: <input type="text" name="nombre" size="40"></p>
-            <p>Edad: <input type="text" name="edad" size="15" ></p>
-            <p>correo electronico: <input type="text" name="correo" size="40"></p>
-            <p>Sexo:
-              <input type="radio" name="hm" value="h"> Hombre
-              <input type="radio" name="hm" value="m"> Mujer
-              <input type="radio" name="hm" value="i"> indefinido
-            </p>
-            <p>
+<p class="nico"> Ingrese sus Datos</p>
+    <div>
+        <div class="container">
+            <form action="/action_page.php">
+            <div class="row">
+              <div class="col-25">
+                <label for="fname">Nombre</label>
+              </div>
+              <div class="col-75">
+                <input type="text" id="fname" name="fname" placeholder="Your name..">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-25">
+                <label for="lname">Apellido</label>
+              </div>
+              <div class="col-75">
+                <input type="text" id="lname" name="Apellido" placeholder="Your last name..">
+              </div>
+            </div>
+            <div class="col-25">
+              <label for="edad">Edad</label>
+            </div>
+            <div class="col-75"> 
+              <input type="text" id= "iedad" name="edad" placeholder="tu" >
+            </div>
+            <div class="row">
+              <div class="col-25">
+                <label for="country">genero</label>
+              </div>
+              <div class="col-75">
+                <select id="genero" name="genero">
+                  <option value="Hombre">Hombre</option>
+                  <option value="Mujer">Mujer</option>
+                  <option value="Indefinido">Indefinido</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-25">
+                <label for="subject">Subject</label>
+              </div>
+              <div class="col-75">
+                <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+              </div>
+            </div>
+            <div class="row">
+              <input type="submit" value="Submit">
+            </div>
+            </form>
+          </div>
+        
+            
+            <!-- <p>
               <button id= "boton" class="button-gel"> ingrese</button>
               <!-- <input type="submit"  class= "botton"value="GET STARTED"  > -->
               <!-- <input type="reset" value="Borrar"> -->
-            </p>
-          </form>
+            <!-- </p> --> 
+         
     </div>
 </body>
 </html>

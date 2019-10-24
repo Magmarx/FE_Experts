@@ -9,11 +9,11 @@ h1 {
  body {
     font-family: 'Titillium Web', sans-serif;
     font-size: 20px;
-    text-align: auto;
+    text-align: justify;
     margin: auto;
-    width: 50%;
+    width: 45%;
     border: 5px solid rgb(20, 124, 84);
-    padding: 10px;
+    padding: 45px;
     border-radius: 20px;
     
 
@@ -40,7 +40,10 @@ h1 {
     display: inline-block;
     font-size: 16px;
 }
+/* p .italic {
+  font-style: italic;
+}
  
-
+ */
 
 
