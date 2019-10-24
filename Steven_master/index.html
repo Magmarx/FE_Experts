@@ -9,10 +9,10 @@
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
     </script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
     <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
     <link rel="stylesheet" href="css/main.css">
@@ -20,7 +20,7 @@
 </head>
 
 <body>
-
+    <!-- slider -->
     <div id="slider">
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
@@ -40,6 +40,7 @@
         </div>
     </div>
 
+    <!-- formulario -->
     <div class="fondo container center">
         <ul class="tab-group">
             <li id="first" class="tab-group-child tab active" onclick="activar()"><a class="tab-group-a"
@@ -48,6 +49,7 @@
                     href="#login">Secundaria</a></li>
         </ul>
 
+        <!-- formulario de información primaria -->
         <div id="primer">
             <div>
                 <h1>Información Principal</h1>
@@ -82,14 +84,15 @@
                     <input type="text" name="" id="fechaR" class="form-control">
                 </div>
                 <div class="container">
-                <input type="button" class="btn btn-danger btn-lg" value="Borrar Datos" onclick="borrar()"></input>
-                <input type="button" class="btn btn-success btn-lg" value="Insertar Datos" onclick="mostrar()"></input>
-            </div>
+                    <input type="button" class="btn btn-danger btn-lg" value="Borrar Datos" onclick="borrar()"></input>
+                    <input type="button" class="btn btn-success btn-lg" value="Insertar Datos"
+                        onclick="mostrar()"></input>
+                </div>
             </form>
         </div>
 
 
-
+        <!-- formulario de información Secundaria -->
         <div id="segundo" class="none">
             <div>
                 <h1>Información Secundaria</h1>

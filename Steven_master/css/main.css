@@ -3,7 +3,7 @@ html {
     height: 100%;
     width: 100%;
 }
-
+/* Diseños generales para estos elementos */
 h1 {
     text-align: center;
 }
@@ -21,6 +21,7 @@ textarea {
     min-height: 75px;
 }
 
+/* Diseño de el slider de imágenes */
 #slider {
     position: relative;
     overflow: hidden;
@@ -61,7 +62,7 @@ a.control_next {
     padding: 4% 3%;
     width: auto;
     height: auto;
-    background: #e2056c;
+    background: #e2056cc2;
     color: #fff;
     text-decoration: none;
     font-weight: 600;
@@ -85,6 +86,7 @@ a.control_next {
     border-radius: 2px 0 0 2px;
 }
 
+/* Empieza diseño de formulario */
 .tab-group {
     list-style: none;
     padding: 0;
