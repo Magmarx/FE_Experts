@@ -8,7 +8,7 @@
 
 </head>
 
-<body  data-toggle="modal" data-target="#miModal">
+<body>
     <!-- partial:index.partial.html -->
 
     <head>
@@ -40,21 +40,28 @@
                 <!-- Bottom Submit -->
                 <div class="relative fullwidth col-xs-12">
                     <!-- Send Button -->
-                    <div class="col-xs-2"></div>
-                    <input type="button" id="submitPrev" name="submitPrev" class="form-btn semibold col-xs-2"
-                        value="Prev" disabled>
                     <div class="col-xs-1"></div>
-                    <input type="button" id="submitGen" name="submitGen" class="form-btn semibold col-xs-3"
+                    <input type="button" id="submitGen" name="submitGen" class="form-btn semibold col-xs-4"
                         value="Generate">
+                    <div class="col-xs-2"></div>
+                    <input type="button" id="submitDet" name="submitDet" class="form-btn semibold col-xs-4"
+                        value="Detailed">
                     <div class="col-xs-1"></div>
-                    <input type="button" id="submitNext" name="submitNext" class="form-btn semibold col-xs-2"
-                        value="Next" disabled>
                 </div><!-- End Bottom Submit -->
                 <!-- Clear -->
-                <div id="detailedLeft" class="col-xs-6 wow animated slideInLeft" data-wow-delay=".5s"></div>
+                <div style="display: none;" id="detailedLeft" class="col-xs-6 wow animated slideInLeft"
+                    data-wow-delay=".5s">
+                    <!-- Name -->
+                    <input style = " margin-top: 25px;" type="text" name="registered" id="registered" class="form" placeholder="registered" />
+                    <!-- Email -->
+                    <input type="text" name="id" id="id" class="form" placeholder="id" />
+                    <!-- Subject -->
+                </div>
                 <!-- End Left Inputs -->
                 <!-- Right Inputs -->
-                <div id="detailedRight" class="col-xs-6 wow animated slideInRight" data-wow-delay=".5s"></div>
+                <div style="display: none;" id="detailedRight" class="col-xs-6 wow animated slideInRight" data-wow-delay=".5s">
+                    <textarea style = "max-height: 125px; margin-top: 25px;" name="tags" id="tags" class="form textarea" placeholder="tags"></textarea>
+                </div>
                 <!-- End Right Inputs -->
             </form>
 
@@ -70,7 +77,8 @@
     </div><!-- End Inner -->
 
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#miModal">
+    <button id="buttonModal" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#miModal"
+        style="display: none;">
         Abrir modal
     </button>
     <!-- Modal -->
@@ -82,10 +90,29 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h4 class="modal-title" id="myModalLabel">Esto es un modal</h4>
+                    <h4 class="modal-title" id="myModalLabel">Nombres</h4>
                 </div>
-                <div class="modal-body">
-                    Texto del modal
+                <div class="modal-body" id="modal-body">
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner" id="carousel-inner">
+                        </div>
+
+                        <!-- Left and right controls -->
+                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                    <!-- <input type="button" id="submitPrev" name="submitPrev" class="form-btn semibold col-xs-2"
+                        value="Prev">
+                    <input type="button" id="submitNext" name="submitNext" class="form-btn semibold col-xs-2"
+                        value="Next">
+                    <img id="modal-img"> -->
                 </div>
             </div>
         </div>
