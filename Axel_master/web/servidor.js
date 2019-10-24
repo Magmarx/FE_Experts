@@ -15,70 +15,120 @@ const urlM = 'https://next.json-generator.com/api/json/get/4Jfe8YWYP';
 //     alert(datosJson[0].name);
 // };
 
-
 //  ------------- METODO FETCH -------------
 $(document).ready(function(){
-    Carusel();
+    //Llama a la funcion que Crea la lista e ingresa Datos
+     list();
 
-    $('#buttonShow').on('click', function(){
-        let nameJ = document.getElementById('name'),
-            companyJ = document.getElementById('company'),
-            emailJ = document.getElementById('email'),
-            phoneJ = document.getElementById('phone'),
-            textArea = document.getElementById('text'),
-            contImg = document.getElementById('contImg'),
-            img = document.createElement('IMG');
+     //JQuery para el Diseño - cambia formulario principal / formulario Segundario
+    $('#btnPrimary').on('click', function(){
+        $('#contPrimary').css({display: 'block'});
+        $('#contSecondary').css({display: 'none'});
 
-            fetch(url).then(response =>{
-                return response.json();
-            }).then(data =>{
-               nameJ.value = data[0].name;
-               companyJ.value = data[0].company;
-               emailJ.value = data[0].email;
-               phoneJ.value = data[0].phone;
-               textArea.value = data[0].about;
-               img.src = data[0].picture;
-            }).catch(error =>{
-                console.log('ERROR: ' + error);
-            });
-            contImg.appendChild(img);
-        
+        $('#btnPrimary').removeClass('btn-secondary').addClass('btn-primary');
+        $('#btnSecondary').removeClass('btn-primary').addClass('btn-secondary');
+    });
+    $('#btnSecondary').on('click', function(){
+        $('#contPrimary').css({display: 'none'});
+        $('#contSecondary').css({display: 'block'});
+
+        $('#btnPrimary').removeClass('btn-primary').addClass('btn-secondary');
+        $('#btnSecondary').removeClass('btn-secondary').addClass('btn-primary');
     });
 
+    $('#JsonButton').on('click', function(){
+        let nameFirst = document.getElementById('firstName'),
+            nameLast = document.getElementById('lastName'),
+            age = document.getElementById('age'),
+            email = document.getElementById('email'),
+            address = document.getElementById('address'),
+            active = document.getElementById('active'),
+            date = document.getElementById('date'),
+            colorEyes = document.getElementById('colorEyes'),
+            company = document.getElementById('company'),
+            phone = document.getElementById('phone'),
+            frut = document.getElementById('frut'),
+            byPerson = document.getElementById('person');
+
+        if(nameFirst.value === "" || nameLast === ""){
+            alert("Los campos estan vacios")
+        }
+        else{
+            let codJson = {
+                    nombre: `${nameFirst.value} ${nameLast.value}`,
+                    años: age.value,
+                    email: email.value,
+                    direccion: address.value,
+                    balance: active.value,
+                    fecha: date.value,
+                    coloOjos: colorEyes.value,
+                    compania: company.value,
+                    Telefono: phone.value,
+                    FrutaFavorita: frut.value,
+                    detallesPersona: byPerson.value
+                };
+                alert(JSON.stringify(codJson));
+        };
+    });
 });
+//funcion que Crea la lista e ingresa Datos
+function list(){
+    let containerData = document.getElementById('containerData');
     
-
-
-function Carusel(){
-    let contCarusel = document.getElementById('caruselContainer'),
-        contador = 0;
-    
+    //Metodo de FETCH para llamar al JSON
     fetch(urlM).then(response =>{
         return response.json();
     }).then(data =>{
+        // ForEach para poder acceder a cada elemento de JSON|
+        data.forEach(element => {
+            let listPerson = document.createElement('LI');
 
-       data.forEach(element => {
-        let contImg = document.createElement('DIV'),
-        imgCarusel = document.createElement('IMG');
-        
-        if(contador === 0){
-            contImg.className = 'carousel-item active';
-        }else{
-            contImg.className = 'carousel-item';
-        }
+            listPerson.className = "list-group-item listItemH"; 
+            listPerson.innerText = `${element.index}) ${element.name.first} ${element.name.last}`;
 
-        imgCarusel.className = 'd-block w-100 imgCarusel';
-        imgCarusel.src = element.image;
+            containerData.appendChild(listPerson);
 
-        contCarusel.appendChild(contImg);
-        contImg.appendChild(imgCarusel);
-
-        console.log(element.name.first)
-
-        contador ++;
-       });
-
+            $(listPerson).on('click',function(){
+                let img = document.getElementById('fondoImg'),
+                    namePerson = document.getElementById('namePerson');
+                
+                img.style = `background-image: url(${element.image});`
+                namePerson.innerText = element.name.first;
+                
+                //Llama a la funcion para llenar los Datos del JSON
+                LlenarDatos(element);
+            });
+        });
     }).catch(error =>{
-        console.log('ERROR: ' + error);
+        console.log("Error de JSON: " + error)
     });
-}
+};
+//funcion para llenar los Datos del JSON
+function LlenarDatos(data){
+    let nameFirst = document.getElementById('firstName'),
+        nameLast = document.getElementById('lastName'),
+        age = document.getElementById('age'),
+        email = document.getElementById('email'),
+        address = document.getElementById('address'),
+        active = document.getElementById('active'),
+        date = document.getElementById('date'),
+        colorEyes = document.getElementById('colorEyes'),
+        company = document.getElementById('company'),
+        phone = document.getElementById('phone'),
+        frut = document.getElementById('frut'),
+        byPerson = document.getElementById('person');
+
+        nameFirst.value = data.name.first;
+        nameLast.value = data.name.last;
+        age.value = data.age;
+        email.value = data.email;
+        address.innerText = data.address;
+        active.value = data.balance;
+        date.value = data.registered;
+        colorEyes.value = data.eyeColor;
+        company.value = data.company;
+        phone.value = data.phone;
+        frut.value = data.favoriteFruit;
+        byPerson.innerText = data.greeting;
+        // console.log('Datos' + nameFirst)
+};
