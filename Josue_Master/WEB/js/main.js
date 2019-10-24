@@ -5,93 +5,82 @@ request.open('GET', requestURL);
 request.responseType = 'json';
 request.send();
 
-// declaracion de la posicion
+// declaracion de la variable posicion esta controla de que posicion se toman los datos del Json
 let posicion = 0;
 
-//declaracion de los objetos que se crean desde JS como variables globales.
+//declaracion de los elementos que se crean desde JS se les asigna como variables globales.
 
-let id = document.createElement('input'),
+const id = document.createElement('input'),
     labelID = document.createElement('label');
 id.setAttribute("id", "Identificador");
 labelID.textContent = "Identificador";
 
-let eyes = document.createElement('input'),
+const eyes = document.createElement('input'),
     labelEyes = document.createElement('label');
 eyes.setAttribute("id", "Eyes");
 labelEyes.textContent = "Color de Ojos";
 
-let fruit = document.createElement('input'),
+const fruit = document.createElement('input'),
     labelFruit = document.createElement('label');
 fruit.setAttribute("id", "Fruit");
 labelFruit.textContent = "Fruta Favorita";
 
-let address = document.createElement('input'),
+const address = document.createElement('input'),
     labelAddress = document.createElement('label');
 address.setAttribute("id", "Address");
 labelAddress.textContent = "Direccion";
 
-let fecRegistred = document.createElement('input'),
+const fecRegistred = document.createElement('input'),
     labelFecRegistred = document.createElement('label');
 fecRegistred.setAttribute("id", "FechaRegistro");
 labelFecRegistred.textContent = "Fecha de Registro";
 
-let MasInfo = document.createElement('textarea');
+const MasInfo = document.createElement('textarea');
 MasInfo.setAttribute("id", "MasInformacion");
 MasInfo.setAttribute("rows", "10");
 MasInfo.setAttribute("cols", "40");
 
-
-//Funciones para cerrar Divs en pantalla menu principal
-const CerrarDivInfo = () => {
-    let masInfo = document.getElementById("SeccionMasInfo");
-    masInfo.remove();
-}
-const CerrarDiv = () => {
-    let detalle = document.getElementById("informacionDetallada");
-    detalle.remove();
-}
-
 // Funcion que cambia al siguiente por medio de la Variable global posicion
 let Next = () => {
 
-    let objetoJson = request.response;
+    const objetoJson = request.response;
     if (posicion === objetoJson.length - 1) {
         posicion = 0;
         infoGeneral(objetoJson);
-        llenadoDetallado(objetoJson);
+        lenadoDeObjetos(objetoJson);
     } else {
         posicion += 1;
         infoGeneral(objetoJson);
-        llenadoDetallado(objetoJson);
+        lenadoDeObjetos(objetoJson);
     }
 }
 
 // Funcion que cambia al anterior por medio de la Variable global posicion
 let Prev = () => {
 
-    let objetoJson = request.response;
+    const objetoJson = request.response;
 
 
     if (posicion === 0) {
         posicion = objetoJson.length - 1;
         infoGeneral(objetoJson);
-        llenadoDetallado(objetoJson);
+        lenadoDeObjetos(objetoJson);
     } else {
         posicion -= 1;
         infoGeneral(objetoJson);
-        llenadoDetallado(objetoJson);
+        lenadoDeObjetos(objetoJson);
     }
 }
 
 //Funciones que cargan la informacion general del Registro mediante la posicion
 const infoGeneral = (jsonObj) => {
-
-    let name = jsonObj[posicion]["name"].first + ' ' + jsonObj[posicion]["name"].last,
+    //se obtienen los datos del objeto Json y se asiganan a variable locales
+    const name = jsonObj[posicion]["name"].first + ' ' + jsonObj[posicion]["name"].last,
         email = jsonObj[posicion]["email"],
         telefono = jsonObj[posicion]["phone"],
         company = jsonObj[posicion]["company"],
         foto = jsonObj[posicion]['image'];
-
+    //se llenan los elementos del doc. HTML estos elementos ya estan en html
     document.getElementById('Name').value = name;
     document.getElementById('Email').value = email;
     document.getElementById('Telefono').value = telefono;
@@ -103,29 +92,29 @@ const infoGeneral = (jsonObj) => {
 };
 
 const GenerarinfoGeneral = () => {
-    let objetoJson = request.response;
+    const objetoJson = request.response;
     infoGeneral(objetoJson);
 };
 
 //funcion que crea un div de informacion detallada y llama otra fincion para llenar el formulario
 const infoDetallada = () => {
-    let jsonObj = request.response;
-
-    let seccion2 = document.createElement('div');
+    const jsonObj = request.response;
+    //creacion del div cuando el usuario desida dar click al boton Detallado
+    const seccion2 = document.createElement('div');
     seccion2.setAttribute("id", "informacionDetallada");
     seccion2.setAttribute("class", "container card-panel grey lighten-2 z-depth-5");
-
-    let titulo = document.createElement('h4');
+    //titulo del div que tambien se crea al dar click al boton Detallado
+    const titulo = document.createElement('h4');
     titulo.setAttribute("id", "Titulo");
     titulo.textContent = "Informacion Detallada";
-
-    let Cerrar = document.createElement('button');
+    //Creacion del boton de cerrar.
+    const Cerrar = document.createElement('button');
     Cerrar.setAttribute('id', 'Cerrar');
     Cerrar.setAttribute("class", "btn waves-effect waves-light red lighten-1");
     Cerrar.style = "float: right;";
     Cerrar.innerText = "X";
-    Cerrar.setAttribute('onclick', 'CerrarDiv()');
-
+    Cerrar.setAttribute('onclick', 'document.getElementById("informacionDetallada").remove()');
+    //Asignacion de Elementos al Div que se creo estos elementos estan creados como variables globales al inico del codigo
     document.getElementById("center").appendChild(seccion2);
     seccion2.appendChild(Cerrar);
     seccion2.appendChild(titulo);
@@ -139,53 +128,55 @@ const infoDetallada = () => {
     seccion2.appendChild(labelAddress);
     seccion2.appendChild(fecRegistred);
     seccion2.appendChild(labelFecRegistred);
-
-    llenadoDetallado(jsonObj);
-
+    //llamado a la funcion que llena los elementos con los datos del objeto Json.
+    lenadoDeObjetos(jsonObj);
 
 };
 
-//funcion que llena el formulario de detallado segun la variable global posicion  
-const llenadoDetallado = (jsonObj) => {
-    let ident = jsonObj[posicion]['_id'],
+//funcion que llena los formulario segun la variable global posicion
+//Esta funcion es llamada dentro de las funciones Next(),Prev(),infoDetallada(),AcercaDe() para que se llenen los elementos siempre.
+const lenadoDeObjetos = (jsonObj) => {
+    //declaracion de variables locales las cuales obtienene la informacion del Json.
+    const ident = jsonObj[posicion]['_id'],
         fruta = jsonObj[posicion]['favoriteFruit'],
         ojos = jsonObj[posicion]['eyeColor'],
         direc = jsonObj[posicion]['address'],
         masIn = jsonObj[posicion]['about'],
         FecReg = jsonObj[posicion]['registered'];
-
+    //llenado de Inputs de la seccion de Informacion Detallada, asignandoles las variables locales declaradas arriba.
     id.value = ident;
     fruit.value = fruta;
     eyes.value = ojos;
     address.value = direc;
-    MasInfo.value = masIn;
     fecRegistred.value = FecReg;
+    //Llenado de seccion de Acerca de, asignandoles las variables locales declaradas arriba.
+    MasInfo.value = masIn;
 }
 
 //funcion que muestra el acerda de cada usuario que esta seleccionado
 const AcercaDe = () => {
 
-    let jsonObj = request.response;
-
-    let seccion3 = document.createElement('div');
+    const jsonObj = request.response;
+    //creacion del div cuando el usuario desida dar click al boton Acerca De
+    const seccion3 = document.createElement('div');
     seccion3.setAttribute("id", "SeccionMasInfo");
     seccion3.setAttribute("class", "container card-panel grey lighten-2 z-depth-5");
-
-    let tituloMasInfo = document.createElement('h4');
+    //titulo del div que tambien se crea al dar click al boton Acerca De
+    const tituloMasInfo = document.createElement('h4');
     tituloMasInfo.setAttribute("id", "tituloMasInfo");
     tituloMasInfo.textContent = "Mas Informacion";
-
-    let CerrarMasInfo = document.createElement('button');
+    //Creacion del boton Cerrar
+    const CerrarMasInfo = document.createElement('button');
     CerrarMasInfo.setAttribute('id', 'CerrarMasInfo');
     CerrarMasInfo.setAttribute("class", "btn waves-effect waves-light red lighten-1");
     CerrarMasInfo.style = "float: right;";
     CerrarMasInfo.innerText = "X";
-    CerrarMasInfo.setAttribute('onclick', 'CerrarDivInfo()');
-
+    CerrarMasInfo.setAttribute('onclick', 'document.getElementById("SeccionMasInfo").remove()');
+    //Asignacion de Elementos al Div que se creo estos elementos estan creados como variables globales al inico del codigo
     document.getElementById("center").appendChild(seccion3);
     seccion3.appendChild(CerrarMasInfo);
     seccion3.appendChild(tituloMasInfo);
     seccion3.appendChild(MasInfo);
-
-    llenadoDetallado(jsonObj);
+    //llamado a la funcion que llena los elementos con los datos del objeto Json.
+    lenadoDeObjetos(jsonObj);
 };
