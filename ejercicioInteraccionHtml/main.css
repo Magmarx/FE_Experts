@@ -1,9 +1,11 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600);	
+/*@import url('https://fonts.googleapis.com/css?family=Rubik');*/
 
 h1 {
   color: #fff;
   text-align: center;
   font-weight: 300;
+  font-size: 20px;
 }
 
 #slider {
@@ -11,6 +13,7 @@ h1 {
   overflow: hidden;
   margin: 20px auto 0 auto;
   border-radius: 4px;
+  
 }
 
 #slider ul {
@@ -29,7 +32,7 @@ h1 {
   padding: 0;
   width: 700px;
   height: 300px;
-  background: #58a5f0;
+  background:#56c8d8;
   text-align: center;
   line-height: 300px;
 }
@@ -68,13 +71,19 @@ a.control_next {
 /* Estilos del formulario  */
 
 body {
-  background:#6A7ACD;
+  background:#006978;
   font-family: 'Titillium Web', sans-serif;
+  font: 20% 'Rubik', sans-serif;
+  /*display: flex;*/
+  justify-content: center;
+  height: 120%;
+
+
 }
 
 a {
   text-decoration:none;
-  color:#534bae;
+  color:#546e7a;
   transition:.5s ease;
 }
 
@@ -83,13 +92,13 @@ a:hover {
 }
 
 .form {
-  background: #304F91;
+  background:#0097a7;
   opacity: 0.9;
   padding: 40px;
   max-width:600px;
   margin:40px auto;
   border-radius:4px;
-  box-shadow:0 4px 10px 4px #304F91;
+  box-shadow:0 4px 10px 4px #000000;
 }
 
 .tab-group {
@@ -116,12 +125,12 @@ a:hover {
   }
 
   .tab-group-child:hover {
-    background:#6A7ACDs;
+    background:#819ca9;
     color:#ffffff;
   }
 
   .tab-group .active {
-    background:#7CD043
+    background:#29434e
     ;
   }
 
@@ -189,8 +198,8 @@ input, textarea, select {
   padding:5px 10px;
   background:none;
   background-image:none;
-  border:1px solid #a0b3b0;
-  color:#7CD043;
+  border:1px solid #819ca9;
+  color:#ffffff;
   border-radius:0;
   transition:border-color .25s ease, box-shadow .25s ease;
   /* &:focus {
@@ -200,7 +209,7 @@ input, textarea, select {
 }
 
 textarea {
-  border:2px solid #a0b3b0;
+  border:2px solid #819ca9;
   resize: vertical;
 }
 
@@ -235,7 +244,7 @@ textarea {
   font-weight:600;
   text-transform:uppercase;
   letter-spacing:.1em;
-  background:#7CD043;
+  background:#29434e;
   color:#ffffff;
   transition:all.5s ease;
   -webkit-appearance: none;
@@ -252,4 +261,12 @@ textarea {
 .forgot {
   margin-top:-20px;
   text-align:right;
+}
+
+{
+  margin: 0;
+  padding: 0;
+}
+html {
+  height: 100%;
 }
