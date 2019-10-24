@@ -37,7 +37,7 @@ labelFecRegistred.textContent = "Fecha de Registro";
 
 const MasInfo = document.createElement('textarea');
 MasInfo.setAttribute("id", "MasInformacion");
-MasInfo.setAttribute("rows", "10");
+MasInfo.setAttribute("rows", "20");
 MasInfo.setAttribute("cols", "40");
 
 // Funcion que cambia al siguiente por medio de la Variable global posicion
@@ -99,10 +99,13 @@ const GenerarinfoGeneral = () => {
 //funcion que crea un div de informacion detallada y llama otra fincion para llenar el formulario
 const infoDetallada = () => {
     const jsonObj = request.response;
-    //creacion del div cuando el usuario desida dar click al boton Detallado
+
+    //Creacion del modal que se muestra en la pantalla
+    const basemodal = document.getElementById('modal1');
+    //creacion del DIV dentro del modal cuando el usuario desida dar click al boton Detallado
     const seccion2 = document.createElement('div');
     seccion2.setAttribute("id", "informacionDetallada");
-    seccion2.setAttribute("class", "container card-panel grey lighten-2 z-depth-5");
+    seccion2.setAttribute("class", "container");
     //titulo del div que tambien se crea al dar click al boton Detallado
     const titulo = document.createElement('h4');
     titulo.setAttribute("id", "Titulo");
@@ -110,12 +113,12 @@ const infoDetallada = () => {
     //Creacion del boton de cerrar.
     const Cerrar = document.createElement('button');
     Cerrar.setAttribute('id', 'Cerrar');
-    Cerrar.setAttribute("class", "btn waves-effect waves-light red lighten-1");
+    Cerrar.setAttribute("class", "btn waves-effect waves-light red lighten-1 modal-close");
     Cerrar.style = "float: right;";
     Cerrar.innerText = "X";
     Cerrar.setAttribute('onclick', 'document.getElementById("informacionDetallada").remove()');
     //Asignacion de Elementos al Div que se creo estos elementos estan creados como variables globales al inico del codigo
-    document.getElementById("center").appendChild(seccion2);
+
     seccion2.appendChild(Cerrar);
     seccion2.appendChild(titulo);
     seccion2.appendChild(eyes);
@@ -128,6 +131,7 @@ const infoDetallada = () => {
     seccion2.appendChild(labelAddress);
     seccion2.appendChild(fecRegistred);
     seccion2.appendChild(labelFecRegistred);
+    basemodal.appendChild(seccion2);
     //llamado a la funcion que llena los elementos con los datos del objeto Json.
     lenadoDeObjetos(jsonObj);
 
@@ -157,10 +161,12 @@ const lenadoDeObjetos = (jsonObj) => {
 const AcercaDe = () => {
 
     const jsonObj = request.response;
-    //creacion del div cuando el usuario desida dar click al boton Acerca De
+    //Creacion del modal que se muestra en la pantalla
+    const basemodal = document.getElementById('modal2.1');
+    //creacion del div dentro del modal cuando el usuario desida dar click al boton Acerca De
     const seccion3 = document.createElement('div');
     seccion3.setAttribute("id", "SeccionMasInfo");
-    seccion3.setAttribute("class", "container card-panel grey lighten-2 z-depth-5");
+    seccion3.setAttribute("class", "container");
     //titulo del div que tambien se crea al dar click al boton Acerca De
     const tituloMasInfo = document.createElement('h4');
     tituloMasInfo.setAttribute("id", "tituloMasInfo");
@@ -168,15 +174,15 @@ const AcercaDe = () => {
     //Creacion del boton Cerrar
     const CerrarMasInfo = document.createElement('button');
     CerrarMasInfo.setAttribute('id', 'CerrarMasInfo');
-    CerrarMasInfo.setAttribute("class", "btn waves-effect waves-light red lighten-1");
+    CerrarMasInfo.setAttribute("class", "btn waves-effect waves-light red lighten-1 modal-close");
     CerrarMasInfo.style = "float: right;";
     CerrarMasInfo.innerText = "X";
     CerrarMasInfo.setAttribute('onclick', 'document.getElementById("SeccionMasInfo").remove()');
     //Asignacion de Elementos al Div que se creo estos elementos estan creados como variables globales al inico del codigo
-    document.getElementById("center").appendChild(seccion3);
     seccion3.appendChild(CerrarMasInfo);
     seccion3.appendChild(tituloMasInfo);
     seccion3.appendChild(MasInfo);
+    basemodal.appendChild(seccion3);
     //llamado a la funcion que llena los elementos con los datos del objeto Json.
     lenadoDeObjetos(jsonObj);
 };

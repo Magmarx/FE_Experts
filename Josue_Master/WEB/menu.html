@@ -11,7 +11,10 @@
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <link type="text/css" rel="stylesheet" href="css/style.css" media="screen,projection" />
 
     <script type="text/javascript" src="js/main.js"></script>
@@ -23,12 +26,12 @@
     <header id="cabeza">
 
     </header>
-    <center id="center">
-        <div class="container card-panel grey lighten-2 z-depth-5">
+    <center id="center" style="margin-top: 180px;">
+        <div class="container grey lighten-3 z-depth-3">
             <div class="row">
                 <form class="row">
                     <h4>Informacion General</h4>
-                    <div class="row col s8">
+                    <div class="row col s7">
                         <div class="input">
                             <input id="Name" type="text" class="validate">
                             <label for="l_name">Nombre</label>
@@ -38,7 +41,7 @@
                             <label for="l_Email">Email</label>
                         </div>
                     </div>
-                    <div class="row col s8">
+                    <div class="row col s7">
                         <div class="input">
                             <input id="Telefono" type="text" class="validate">
                             <label for="l_Telefono">Telefono</label>
@@ -49,25 +52,20 @@
                         </div>
                     </div>
                     <div>
-                        <img class="responsive-img" id="Imagen">
-                    </div>
-                    <div>
-                        <button class="btn waves-effect waves-light" type="button" name="action"
-                            onclick="GenerarinfoGeneral()">Generar</button>
-                    </div>
-                    <br>
-                    <br>
-                    <br>
-                    <div>
-                        <button class="btn waves-effect waves-light" type="button" name="action"
-                            onclick="infoDetallada()">Detallado</button>
+                        <button class="btn waves-effect waves-light tooltipped" data-position="bottom"
+                            data-tooltip="Generar" type="button" name="action"
+                            onclick="GenerarinfoGeneral()">🢃</button>
+
+                        <button class="btn waves-effect waves-light tooltipped modal-trigger" data-position="bottom"
+                            data-tooltip="Detallado" type="button" name="action" onclick="infoDetallada()"
+                            href="#modal">≡</button>
+
+                        <button class="btn waves-effect waves-light tooltipped modal-trigger" data-position="bottom"
+                            data-tooltip="Mas Info." type="button" name="action" onclick="AcercaDe()"
+                            href="#modal2">+≡</button>
                     </div>
                     <div style="margin-top: 40px;">
                         <img id="fotoPerfil"></img>
-                    </div>
-                    <div>
-                        <button class="btn waves-effect waves-light" type="button" name="action"
-                            onclick="AcercaDe()">Acerca De</button>
                     </div>
                 </form>
                 <div style="padding: 1%;">
@@ -81,9 +79,32 @@
             </div>
         </div>
     </center>
+
+    <!-- aca esta el codigo de los modales a los cuales se les asignan los div que se crean en javascript -->
+    <div id="modal" class="modal">
+        <div id="modal1" class="modal-content">
+        </div>
+        <div class="modal-footer">
+        </div>
+    </div>
+
+    <div id="modal2" class="modal ">
+        <div id="modal2.1" class="modal-content">
+        </div>
+        <div class="modal-footer">
+        </div>
+    </div>
 </body>
 
-<!--JavaScript at end of body for optimized loading-->
+<!--JavaScript-->
 <script type="text/javascript" src="js/materialize.min.js"></script>
+<script type="text/javascript" src="js/materialize.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.tooltipped').tooltip();
+        $('.modal').modal();
+    });
+</script>
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
 
 </html>
