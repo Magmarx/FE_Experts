@@ -8,20 +8,36 @@
     <title>Control</title>
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/main.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
     <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <link rel="stylesheet" href="css/main.css">
     <script src="index.js"></script>
 </head>
 
 <body>
-    <div id="slider" class="center container">
-        <img src="" id="imagen" alt="">
-        <a href="#" class="control_next">>></a>
-        <a href="#" class="control_prev">
-            << </a> <ul id="mainSlider">
-                <li>Listado de usuarios</li>
-                <li>Fin de los slides</li>
+
+    <div id="slider">
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <ul id="mainSlider">
+                    <li>Listado de usuarios</li>
+                    <li>Fin de los slides</li>
                 </ul>
+            </div>
+            <a class="control_prev" onclick="">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="control_next" onclick="slider()">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
     </div>
 
     <div class="fondo container center">
@@ -65,11 +81,11 @@
                     <label>Fecha de registro:</label>
                     <input type="text" name="" id="fechaR" class="form-control">
                 </div>
-                <input type="button" onclick="mostrarjson()" value="Aceptar"></input>
+                <input type="button" class="btn btn-success btn-block" value="Aceptar" onclick="mostrar()"></input>
             </form>
         </div>
 
-        
+
 
         <div id="segundo" class="none">
             <div>
