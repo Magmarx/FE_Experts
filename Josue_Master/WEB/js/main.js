@@ -186,3 +186,77 @@ const AcercaDe = () => {
     //llamado a la funcion que llena los elementos con los datos del objeto Json.
     lenadoDeObjetos(jsonObj);
 };
+//funcion que genera un modal para buscar usuarios por medio del Index
+const generarModalBuscar = () => {
+    //crea el boton cerrar
+    const Cerrar = document.createElement('button');
+    Cerrar.setAttribute('id', 'Cerrar');
+    Cerrar.setAttribute("class", "btn waves-effect waves-light red lighten-1 modal-close");
+    Cerrar.style = "float: right;";
+    Cerrar.innerText = "X";
+    Cerrar.setAttribute('onclick', 'document.getElementById("modal3.1").removeChild(seccion4), document.getElementById("modal3.1").removeChild(Cerrar)');
+    //obtiene la estructura del modal al cual se le agregan los elementos que se generan con esta funcion
+    const basemodal = document.getElementById('modal3.1');
+    //crea un elemento div
+    const seccion4 = document.createElement('div');
+    seccion4.setAttribute("id", "seccion4");
+    seccion4.setAttribute("class", "container row");
+    //crea un elemento div
+    const seccionBusqueda = document.createElement('div');
+    seccionBusqueda.setAttribute("id", "Busqueda");
+    seccionBusqueda.setAttribute("class", "container row");
+    //crea un h4 como titulo paara el Modal
+    const tituloBuscar = document.createElement('h4');
+    tituloBuscar.textContent = "Buscar";
+    //crea un elemento input el cual utilizaremos para buscar por medio de su valor
+    const porID = document.createElement('input');
+    porID.setAttribute("id", "porID");
+    porID.setAttribute("class", "col s8");
+    const labelPorId = document.createElement("label");
+    labelPorId.textContent = "ID";
+    //crea el boton buscar por el cual se invoca la funcion Buscar() escrita abajo de esta funcion
+    const btnBuscar = document.createElement('button');
+    btnBuscar.setAttribute("class", "btn waves-effect waves-light");
+    btnBuscar.style = "position:absolute; right:50px;";
+    btnBuscar.innerHTML = "Buscar";
+    btnBuscar.setAttribute("onclick","Buscar()");
+    //div que contiene los elementos que se llenan al encontrar concidencias de la busqueda
+    const contenido = document.createElement('div');
+    contenido.setAttribute("id", "Contenido");
+    contenido.setAttribute("class", "container row");
+    //elementos que se llenan por medio de concidencias
+    const inNombre = document.createElement('input'); 
+    inNombre.setAttribute("id","intNombre");
+    const lblNombre = document.createElement('label');
+    lblNombre.textContent = "Nombre"
+    
+    const inApellido = document.createElement('input'); 
+    inApellido.setAttribute("id","intApellido");
+    const lblApellido = document.createElement('label');
+    lblApellido.textContent = "Apellido";
+    //estructura del formulario de busaqueda y botones
+    basemodal.appendChild(Cerrar);
+    basemodal.appendChild(seccion4);
+    seccion4.appendChild(tituloBuscar);
+    seccion4.appendChild(seccionBusqueda);
+    seccionBusqueda.appendChild(porID);
+    seccionBusqueda.appendChild(labelPorId);
+    seccionBusqueda.appendChild(btnBuscar);
+    seccion4.appendChild(contenido);
+    contenido.appendChild(inNombre);
+    contenido.appendChild(lblNombre);
+    contenido.appendChild(inApellido);
+    contenido.appendChild(lblApellido);
+
+};
+//funcion que llena el formulario que se creo con la funcion generarModalBuscar al precionar el boton Buscar
+const Buscar = () => {
+    const jsonObj = request.response; 
+    const ID = document.getElementById('porID').value;
+    for(i = 0; i < jsonObj.length; i++){
+        if(Number(ID) === jsonObj[i]['index']){
+            document.getElementById('intNombre').value = jsonObj[i]["name"].first;
+            document.getElementById('intApellido').value = jsonObj[i]["name"].last;
+        };
+    };
+};
