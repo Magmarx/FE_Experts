@@ -115,9 +115,6 @@ function mostrar() {
                             this.value = users[atributo];
                         }
                     }
-                    let valor = {}
-                    valor = this.value;
-                    console.log(valor);
                 });
                 // convierto mi objeto a tipo string y luego lo muestro en pantalla
             });
