@@ -1,0 +1,102 @@
+body {
+  margin: 16px;
+  color: #5e8497f3;
+  background: #97a06254;
+  font: 600 16px/18px 'Open Sans', sans-serif;
+}
+#title{
+  text-align: center;
+  font-weight: 800;
+  font-size: 37px;
+}
+#global {
+  width: 65%;
+  margin: 26px auto;
+  margin-top: 30px;
+  background: white;
+  padding: 34px;
+  box-shadow: 0px 0px 2px gray;
+
+}
+
+#btn1 {}
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600);
+
+
+h1 {
+  color: #fff;
+  text-align: center;
+  font-weight: 300;
+}
+
+#slider {
+  position: relative;
+  overflow: hidden;
+  margin: 20px auto 0 auto;
+  border-radius: 4px;
+}
+
+#slider ul {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#slider ul li {
+  position: relative;
+  display: inline-block;
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 500px;
+  height: 500px;
+  background-position: center;
+  text-align: center;
+  line-height: 940px;
+  color: #A09797;
+
+}
+
+a.control_prev,
+a.control_next {
+  position: absolute;
+  top: 40%;
+  z-index: 999;
+  display: block;
+  padding: 4% 3%;
+  width: auto;
+  height: auto;
+  background: #2a2a2a;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 18px;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+a.control_prev:hover,
+a.control_next:hover {
+  opacity: 1;
+  -webkit-transition: all 0.2s ease;
+}
+
+a.control_prev {
+  border-radius: 0 2px 2px 0;
+}
+
+a.control_next {
+  right: 0;
+  border-radius: 2px 0 0 2px;
+}
+
+.slider_option {
+  position: relative;
+  margin: 10px auto;
+  width: 160px;
+  font-size: 18px;
+}
+
+//

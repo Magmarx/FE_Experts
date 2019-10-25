@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Ingreso de Datos</title>
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="style.css">
+
+
+    <!--scripts-->
+    <script type="text/javascript" src="slider.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+
+
+</head>
+
+<body>
+
+    <!--Slider-->
+    <section id="global">
+        <h5 id="title">Control de Datos</h5>
+        <hr>
+        <div id="slider">
+            <a id="next" href="#" class="control_next">>></a>
+            <a id="prev" href="#" class="control_prev">
+                <</a> </a> <ul id="mainSlider">
+                    <li>Inicio</li>
+                    <li>Fin</li>
+                    </ul>
+        </div>
+        <hr>
+
+        <div class="login-wrap">
+            <div class="login-html">
+                <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1"
+                    class="tab">Principal</label>
+                <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2"
+                    class="tab">Secundario</label>
+                <div class="login-form">
+                    <div class="sign-in-htm">
+
+                        <h5 id="greeting"></h5>
+
+                        <div class="group">
+                            <label for="user" class="label">Nombre</label>
+                            <input id="name" type="text" class="input">
+                        </div>
+                        <div class="group">
+                            <label for="user" class="label">Apellido</label>
+                            <input id="lastname" type="text" class="input">
+                        </div>
+                        <div class="group">
+                            <label for="user" class="label">Edad</label>
+                            <input id="age" type="number" class="input">
+                        </div>
+                        <div class="group">
+                            <label for="email" class="label">Correo Electronico</label>
+                            <input id="email" type="text" class="input">
+                        </div>
+                        <div class="group">
+                            <label for="address" class="label">Direccion</label>
+                            <textarea id="address" type="text" class="input"></textarea>
+                        </div>
+                        <div class="group">
+                            <label for="activos" class="label">Activos</label>
+                            <input id="balance" type="number" class="input">
+                        </div>
+                        <div class="group">
+                            <label for="activos" class="label">Fecha de Registro</label>
+                            <input id="inDate" type="text" class="input">
+                        </div>
+
+
+                        <div class="group">
+                            <button id="btn1" type="submit" class="button">Listo</button>
+                        </div>
+                        <div class="hr"></div>
+                        <div class="foot-lnk">
+                        </div>
+
+                    </div>
+                    <div class="sign-up-htm">
+                        <div class="group">
+                            <label for="user" class="label">Color de sus ojos</label>
+                            <input id="eyes" type="text" class="input" required autocomplete="off" />
+                        </div>
+                        <div class="group">
+                            <label for="user" class="label">Compañia para la que elabora</label>
+                            <input id="company" type="text" class="input" required autocomplete="off" />
+                        </div>
+
+                        <div class="group">
+                            <label for="user" class="label">Numero de telefono</label>
+                            <input id="phone" type="text" class="input" required autocomplete="off" />
+                        </div>
+                        <div class="group">
+                            <label for="user" class="label">Fruta Favorita</label>
+                            <input id="fruit" type="text" class="input" required autocomplete="off" />
+                        </div>
+                        <div class="group">
+                            <label for="user" class="label">Acerca de la persona</label>
+                            <textarea id="about" type="text" class="input" required autocomplete="off"></textarea>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
