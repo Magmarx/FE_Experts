@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="materialize.min.css" media="screen,projection" />
+  <link type="text/css" rel="stylesheet" href="main.css">
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script src="text.js"></script>
+
+</head>
+
+<body background="https://static.vecteezy.com/system/resources/thumbnails/000/112/118/small/minimal-vector-pattern.jpg">
+
+  <div class="container #d7ccc8 brown lighten-4 z-depth-2">
+    <center>
+      <font size="15" face="Righteous">Generador de JSONS</font>
+    </center>
+
+  </div>
+  <br>
+  <br>
+
+  <div class="container">
+    <div class="row">
+      <div class="col s2">
+
+      </div>
+      <div class="col s8">
+        <button class="waves-effect waves-light btn left-align" id="principal"><i
+            class="material-icons left">looks_one</i>Primario</button>
+        <button class="waves-effect waves-light btn right-align" id="masinfo"><i
+            class="material-icons left">looks_two</i>Secundario</button>
+      </div>
+      <div class="col s2">
+        <!-- Modal Trigger -->
+        <a class="waves-effect waves-light btn pink darken-1 modal-trigger" href="#demo-modal-fixed-footer" id="generar">Generar</a>
+
+        <!-- Modal Structure -->
+        <div id="demo-modal-fixed-footer" class="modal modal-fixed-footer">
+          <div class="modal-content" id="contenidoModal">
+            <h1>Tu JSON generado:</h1>
+            <label id="jsonxd"></label>
+            <br>
+
+          </div>
+          <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close btn orange darken-1">OK</a>
+          </div>
+        </div>
+      </div>
+      <script>
+        $(document).ready(function () {
+          $('.modal').modal();
+        })
+      </script>
+    </div>
+  </div>
+  </div>
+
+  <div class="container #d7ccc8 brown lighten-4 z-depth-2">
+    <div class="row">
+      <div class="col s2 right-align">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <button class="btn-floating btn-large waves-effect waves-light red z-depth-2" id="anterior"><i
+            class="material-icons">arrow_back</i></button>
+      </div>
+      <div class="col s8">
+        <br>
+        <br>
+        <div class="col s2"></div>
+        <div id="perfil" class="col s8"></div>
+        <div class="col s2"></div>
+        <br>
+        <br>
+        <br>
+
+
+        <div id="primario">
+          <form class="col s12">
+            <div class="row">
+              <br>
+              <br>
+              <br>
+              <div class="col s6">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="name" type="text" class="validate">
+                <label for="name">Nombre</label>
+              </div>
+              <div class="col s6">
+                <i class="material-icons prefix">-</i>
+                <input id="lastname" type="text" class="validate">
+                <label for="lastname">Apellido</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col s6">
+                <i class="material-icons prefix">emoji_people</i>
+                <input id="age" type="number" class="validate">
+                <label for="age">Edad</label>
+              </div>
+              <div class="col s6">
+                <i class="material-icons prefix">email</i>
+                <input id="email" type="email" class="validate">
+                <label for="email">E-mail</label>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col s6">
+                <i class="material-icons prefix">calendar_today</i>
+                <input id="inDate" type="text" class="validate">
+                <label for="inDate">Fecha de Registro</label>
+              </div>
+              <div class="col s6">
+                <i class="material-icons prefix">monetization_on</i>
+                <input id="balance" type="number" class="validate">
+                <label for="balance">Ingresos</label>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col s8">
+                <i class="material-icons prefix">home</i>
+                <input id="address" type="text" class="validate">
+                <label for="address">Dirección</label>
+                <br>
+                <br>
+
+              </div>
+
+              <div class="col s4">
+
+
+                <br>
+                <br>
+                <br>
+
+
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div id="secas">
+          <form class="col s12">
+            <div class="row">
+              <br>
+              <br>
+              <br>
+              <div class="col s6">
+                <i class="material-icons prefix">mood</i>
+                <input id="eyes" type="text" class="validate">
+                <label for="eyes">Color de Ojos</label>
+              </div>
+              <div class="col s6">
+                <i class="material-icons prefix">business</i>
+                <input id="company" type="text" class="validate">
+                <label for="company">Empresa</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col s6">
+                <i class="material-icons prefix">phone</i>
+                <input id="phone" type="tel" class="validate">
+                <label for="phone">Numero Telefonico</label>
+              </div>
+              <div class="col s6">
+                <i class="material-icons prefix">emoji_objects</i>
+                <input id="fruit" type="text" class="validate">
+                <label for="fruit">Fruta Favorita</label>
+              </div>
+            </div>
+            <br>
+            <br>
+            <div class="row">
+              <div class="col s8">
+                <i class="material-icons prefix">add_comment</i>
+                <textarea id="description" class="materialize-textarea validate"></textarea>
+                <label for="description">Descripción</label>
+                <br>
+                <br>
+              </div>
+            </div>
+          </form>
+        </div>
+
+
+        <br>
+        <br>
+
+
+
+      </div>
+      <div class="col s2 left-align">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <button class="btn-floating btn-large waves-effect waves-light red z-depth-2" id="siguiente"><i
+            class="material-icons">arrow_forward</i></button>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  <!--JavaScript at end of body for optimized loading-->
+  <script type="text/javascript" src="materialize.min.js"></script>
+</body>
+
+</html>
