@@ -24,7 +24,6 @@ $(document).ready(function ($) {
 
                     e.preventDefault();
 
-
                     let inputs = $("#formulario :input");
                     inputs.each(function () {
                         if (this.type !== "button") {
@@ -32,20 +31,17 @@ $(document).ready(function ($) {
                                 let atributo = this.getAttribute("json"),
                                     atributo2 = this.getAttribute("json2");
 
-                                this.value = users[atributo][atributo2]
+                                this.value = users[atributo][atributo2];
                             } else {
                                 let atributo = this.getAttribute("json");
                                 this.value = users[atributo];
                             }
                         }
-
                     });
                 });
             });
             newArray = mostrar;
         });
-
-
 
     // Definición de propiedades css de mi slider
     var slideCount = $('#slider ul li').length;
@@ -95,32 +91,16 @@ $(document).ready(function ($) {
 });
 
 function mostrar() {
-    fetch(url)
-        .then(response => {
-            return response.json();
-        })
-        .then(mostrar => {
-            mostrar.forEach(users => {
-                // Obtengo los valores del json que me interesa
-                let inputs = $("#formulario :input");
-                inputs.each(function () {
-                    if (this.type !== "button") {
-                        if (this.getAttribute("json2")) {
-                            let atributo = this.getAttribute("json"),
-                                atributo2 = this.getAttribute("json2");
-
-                            this.value = users[atributo][atributo2];
-                        } else {
-                            let atributo = this.getAttribute("json");
-                            this.value = users[atributo];
-                        }
-                    }
-                });
-                // convierto mi objeto a tipo string y luego lo muestro en pantalla
-            });
-        });
+    // Obtengo los valores del json que me interesa
+    let json = []
+    let inputs = $("#formulario :input");
+    inputs.each(function () {
+        if (this.type !== "button") {
+            json.push("\n" + this.value)
+        }
+    });
+    alert(json)
 };
-
 
 // funciones para cambiar de información principal a secundaria y viceversa
 function activarSecundaria() {
