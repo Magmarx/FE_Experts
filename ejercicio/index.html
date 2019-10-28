@@ -1,215 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- lang="en" -->
+
 <head>
-  <style>
-    p .nico{
-      font-style: italic;
-    }
-  * {
-  box-sizing: border-box;
-}
+  <link rel="stylesheet" href="style.css">
 
-input[type=text], select, textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid rgb(21, 138, 31);
-  border-radius: 4px;
-  resize: vertical;
-  border-style: solid;
-  
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="proyec.css">
 
-label {
-  padding: 12px 12px 12px 0;
-  display: inline-block;
-}
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-input[type=submit] {
-  background-color: #4CAF50;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  float: right;
-}
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
 
-input[type=submit]:hover {
-  background-color: #45a049;
-}
+  <script src="proyec.js"></script>
 
-.container {
-  border-radius: 5px;
-  background-color: #1686a1;
-  padding: 20px;
-}
-
-.col-25 {
-  float: left;
-  width: 25%;
-  margin-top: 6px;
-}
-
-.col-75 {
-  float: left;
-  width: 75%;
-  margin-top: 6px;
-}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-  .col-25, .col-75, input[type=submit] {
-    width: 100%;
-    margin-top: 0;
-  }
-}
-    }
-    </style>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="proyec.css">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
-     
-    <title>Formulario</title>
+  <title>Formulario</title>
 </head>
-<body style="background-image: linear-gradient(rgb(0, 204, 255), rgb(0, 47, 255));">
-    <h1>Formulación</h1>  
-  <div><canvas id="myCanvas" class="canvas" > </canvas>
-     <div id="slide">
-      <a href="#"  class="derecha ">&#9664</a> 
-     <a href="#" class="izquierda">&#9658</a>
+
+<body background="img1.jpg">
+  <div class="container">
+    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel"
+      style="width: 500px; border-radius: 35px;">
+
+      <div class="carousel-inner" id="contenedorCarusel">
+        <div class="carousel-item active">
+          <img src="gato.jpg" class="d-block w-100" alt="..." width= "x">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Datos</h5>
+            <p>Nombre y datos del formulario.</p>
+          </div>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
     </div>
-<script>
-var c = document.getElementById("myCanvas");
-var ctx = c.getContext("2d");
-ctx.fillStyle = "	#6495ED";
-ctx.fillRect(0, 0, 80, 100);
 
-</script>
-</div>
 
-<p class="nico"> Principal</p>
-    
+    <p class="nico"> Principal</p>
+
+    <div class="container">
+      <form action="/action_page" method="POST">
+        <div class="row">
+          <div class="col-25">
+            <label for="fname">Nombre</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="fname" name="fname" placeholder="escribe tu nombre..">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="lname">Apellido</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="lname" name="Apellido" placeholder="escribe tu apellido..">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="edad">Edad</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="iedad" name="edad" placeholder=" escribe tu edad..">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="correo"> Correo Electronico</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="icorreo" name="correo" placeholder="escribe tu correo..">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="direccion">Dirección</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="idireccion" name="direccion" placeholder="escribe tu direcciòn..">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="activo">Activos</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="iactivo" name="activo" placeholder=" cuantos estan activos..">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="fregistro">Fecha Registro</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="iregistro" name="registro" placeholder=" fecha de registro..">
+          </div>
+        </div>
+      </form>
+    </div>
+    <div id="second">
+      <p>Secundaria</p>
+      <div>
         <div class="container">
-            <form action="/action_page" method="POST">
+
+          <form action="/action_page">
             <div class="row">
               <div class="col-25">
-                <label for="fname">Nombre</label>
+                <label for="cojos">Color Ojos</label>
               </div>
               <div class="col-75">
-                <input type="text" id="fname" name="fname" placeholder="escribe tu nombre..">
+                <input type="text" id="cojos" name="ojos" placeholder="escribe tu color de ojos..">
               </div>
             </div>
             <div class="row">
               <div class="col-25">
-                <label for="lname">Apellido</label>
+                <label for="company">compañia</label>
               </div>
               <div class="col-75">
-                <input type="text" id="lname" name="Apellido" placeholder="escribe tu apellido..">
+                <input type="text" id="company" name="compañia" placeholder="escriba la compañia..">
               </div>
             </div>
             <div class="row">
-            <div class="col-25">
-              <label for="edad">Edad</label>
-            </div>
-            <div class="col-75"> 
-              <input type="text" id= "iedad" name="edad" placeholder=" escribe tu edad.." >
-            </div>
-            </div>
-            <div class="row">
               <div class="col-25">
-                <label for="correo"> Correo Electronico</label>
-              </div>
-                <div class="col-75">
-                    <input type="text" id="icorreo" name="correo" placeholder="escribe tu correo..">
-                </div>
-            </div>
-            <div class="row">
-              <div class="col-25">
-                <label for="direccion">Dirección</label>
+                <label for="numero">No. Telefono</label>
               </div>
               <div class="col-75">
-                <input type="text" id="idreccion" name="direccion" placeholder="escribe tu dirreccion..">
+                <input type="text" id="itelefono" name="numero" placeholder=" escribe tu no. telefonico..">
               </div>
             </div>
             <div class="row">
-                <div class="col-25">
-                  <label for="activo">Activos</label>
-                </div>
-                <div class="col-75"> 
-                  <input type="text" id= "iactivo" name="activo" placeholder=" cuantos estan activos.." >
-                </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                      <label for="fregistro">Fecha Registro</label>
-                    </div>
-                    <div class="col-75"> 
-                      <input type="text" id= "iregistro" name="registro" placeholder=" fecha de registro.." >
-                    </div>
-                  </div>
+              <div class="col-25">
+                <label for="fruta"> Fruta Favorita</label>
+              </div>
+              <div class="col-75">
+                <input type="text" id="ifruta" name="fruta" placeholder="escribe tu fruta favorita..">
+              </div>
+            </div>
+            <div class="row">
+              <!-- <button id="getStarted" class="button button-block" >Get Started</button> -->
+              <input type="button" value="ingresar" onclick="clickbutton()">
           </form>
         </div>
-        <div id="second">
-          <p>Secundaria</p>
-          <div>
-            <div class="container">
-             
-              <form action="/action_page">
-                <div class="row">
-                  <div class="col-25">
-                    <label for="cojos">Color Ojos</label>
-                  </div>
-                  <div class="col-75">
-                    <input type="text" id="cojos" name="ojos" placeholder="escribe tu color de ojos..">
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-25">
-                    <label for="company">compañia</label>
-                  </div>
-                  <div class="col-75">
-                    <input type="text" id="company" name="compañia" placeholder="escriba la compañia..">
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-25">
-                    <label for="numero">No. Telefono</label>
-                  </div>
-                  <div class="col-75"> 
-                    <input type="text" id= "itelefono" name="numero" placeholder=" escribe tu no. telefonico.." >
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-25">
-                    <label for="fruta"> Fruta Favorita</label>
-                  </div>
-                  <div class="col-75">
-                    <input type="text" id="ifruta" name="fruta" placeholder="escribe tu fruta favorita..">
-                  </div>
-                </div>
-                <div class="row">
-                    <!-- <button id="getStarted" class="button button-block" >Get Started</button> -->
-                  <input type="submit" value="ingresar">
-                  </form>
-            </div>
-              
-            
-            <!-- <p>
-              <button id= "boton" class="button-gel"> ingrese</button>
-              <!-- <input type="submit"  class= "botton"value="GET STARTED"  > -->
-              <!-- <input type="reset" value="Borrar"> -->
-            <!-- </p> --> 
-            <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
-            
+
+
+        <!-- <p>
+          <button id= "boton" class="button-gel"> ingrese</button>
+          <input type="submit"  class= "botton"value="GET STARTED"  > -->
+        <!-- <input type="reset" value="Borrar"> -->
+        <!-- </p> -->
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
+
+      </div>
     </div>
 </body>
+
 </html>

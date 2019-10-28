@@ -1,44 +1,99 @@
 
 h1 {
-    color: rgba(31, 29, 28, 0.904);
+    color: rgba(200, 233, 241, 0.836);
     text-align: center;
     -webkit-transition: width 2s; 
   transition: width 2s;
   
 }
- body {
+ /* body {
     font-family: 'Titillium Web', sans-serif;
     font-size: 20px;
     text-align: justify;
-    margin: auto;
     width: 45%;
-    border: 5px solid rgb(20, 124, 84);
+    border: 5px solid rgb(20, 196, 219);
     padding: 45px;
     border-radius: 20px;
     
 
+ } */
+ .carousel {
+   margin: 0;
  }
- /* canvas {
-     border-block-color: red;
- } 
+input[type=text],
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid rgb(21, 138, 31);
+  border-radius: 4px;
+  resize: vertical;
+  border-style: solid;
 
- a.derecha {
-    border-radius: 0 2px 2px 0;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 35px;
+  background-color: #1686a1;
+  padding: 20px;
+  border: 5px solid black;
+  margin: 0px 50px 0px;
+ 
+ 
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* borra los flotadores despues de las columnas */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.imgCarusel{
+  height: 300px;
+}
+/* 
+Diseño receptivo: cuando la pantalla tiene menos de 600 px de ancho, haga que las dos columnas se apilen una encima de la otra en lugar de una al lado de la otra */
+@media screen and (max-width: 600px) {
+
+  .col-25,
+  .col-75,
+  input[type=submit] {
+    width: 100%;
+    margin-top: 0;
   }
-  
-  a.izquierda {
-    right: 0px;
-    border-radius: 2px 0 0 2px;
-  } 
-.button {
-    background-color: #4CAF50; /* Green */
-    /* border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
+}
+
 
 
 
