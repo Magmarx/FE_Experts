@@ -26,16 +26,19 @@
                 <!-- Left Inputs -->
                 <div class="col-xs-6 wow animated slideInLeft" data-wow-delay=".5s">
                     <!-- Name -->
-                    <input type="text" name="name" id="name" class="form" placeholder="name" />
+                    <input type="text" name="name" id="name" class="form" placeholder="name" jsonValue="name"
+                        jsonValue2="first" jsonValue3="last" />
                     <!-- Email -->
                     <input type="text" name="email" id="mail" class="form" placeholder="email" jsonValue="email" />
                     <!-- Subject -->
-                    <input type="text" name="address" id="address" class="form" placeholder="address" />
+                    <input type="text" name="address" id="address" class="form" placeholder="address"
+                        jsonValue="address" />
                 </div><!-- End Left Inputs -->
                 <!-- Right Inputs -->
                 <div class="col-xs-6 wow animated slideInRight" data-wow-delay=".5s">
                     <!-- Message -->
-                    <textarea name="about" id="about" class="form textarea" placeholder="about"></textarea>
+                    <textarea name="about" id="about" class="form textarea" placeholder="about"
+                        jsonValue="about"></textarea>
                 </div><!-- End Right Inputs -->
                 <!-- Bottom Submit -->
                 <div class="relative fullwidth col-xs-12">
@@ -52,15 +55,18 @@
                 <div style="display: none;" id="detailedLeft" class="col-xs-6 wow animated slideInLeft"
                     data-wow-delay=".5s">
                     <!-- Name -->
-                    <input style = " margin-top: 25px;" type="text" name="registered" id="registered" class="form" placeholder="registered" />
+                    <input style=" margin-top: 25px;" type="text" name="registered" id="registered" class="form"
+                        placeholder="registered" jsonValue="registered" />
                     <!-- Email -->
-                    <input type="text" name="id" id="id" class="form" placeholder="id" />
+                    <input type="text" name="id" id="id" class="form" placeholder="id" jsonValue="_id" />
                     <!-- Subject -->
                 </div>
                 <!-- End Left Inputs -->
                 <!-- Right Inputs -->
-                <div style="display: none;" id="detailedRight" class="col-xs-6 wow animated slideInRight" data-wow-delay=".5s">
-                    <textarea style = "max-height: 125px; margin-top: 25px;" name="tags" id="tags" class="form textarea" placeholder="tags"></textarea>
+                <div style="display: none;" id="detailedRight" class="col-xs-6 wow animated slideInRight"
+                    data-wow-delay=".5s">
+                    <textarea style="max-height: 125px; margin-top: 25px;" name="tags" id="tags" class="form textarea"
+                        placeholder="tags" jsonValue="tags"></textarea>
                 </div>
                 <!-- End Right Inputs -->
             </form>

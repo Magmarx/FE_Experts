@@ -1,24 +1,14 @@
 $(document).ready(function ($) {
 
     //variables obtenidas a partir de elementos
-    let posicion = 0,
-        objeto,
-        longitud;
+    let posicion = 0;
 
     //Variables que se utilizan para mostrar el carousel
     let buttonGen = document.getElementById('submitGen'),
         buttonDet = document.getElementById('submitDet'),
         detailedLeft = document.getElementById('detailedLeft'),
         detailedRight = document.getElementById('detailedRight'),
-        carousel = document.getElementById('carousel-inner')
-
-    let inputName = document.getElementById('name'),
-        inputMail = document.getElementById('mail'),
-        inputAddress = document.getElementById('address'),
-        inputAbout = document.getElementById('about'),
-        inputRegistered = document.getElementById('registered'),
-        inputId = document.getElementById('id'),
-        inputTags = document.getElementById('tags');
+        carousel = document.getElementById('carousel-inner');
 
     /**
      * Declaramos los inputs dinamicos
@@ -28,9 +18,9 @@ $(document).ready(function ($) {
      * @deleteInputValues
      * @insertJsonInputValues
      */
-    let inputs = $('#contact-us :input[type=text]');
-    let textareas = $('textarea#tags');
-
+    let inputs = $('#contact-us :input');
+    
+    
     //eventos click
     $(buttonDet).on('click', function () {
         detailedLeft.style = 'display: block;';
@@ -41,21 +31,12 @@ $(document).ready(function ($) {
     //@deleteInputValues
     $(buttonGen).on('click', function () {
         modalExecute();
-        // inputName.value = '';
-        // inputMail.value = '';
-        // inputAddress.value = '';
-        // inputAbout.value = '';
-        // inputRegistered.value = '';
-        // inputId.value = '';
-        // inputTags.value = '';
         inputs.each(function () {
-            this.value = '';
+            if (this.type !== 'button') {
+                this.value = '';
+            }
         });
 
-        console.log(textareas.value)
-        // textareas.each(function () {
-        //     this.value = '';
-        // });
         buttonDet.disabled = false;
         detailedLeft.style = 'display: none;';
         detailedRight.style = 'display: none;';
@@ -109,13 +90,22 @@ $(document).ready(function ($) {
 
     //@insertJsonInputValues
     let completeForm = (obj) => {
-        inputName.value = `${obj.name.first} ${obj.name.last}`;
-        inputMail.value = obj.email;
-        inputAddress.value = obj.address;
-        inputAbout.value = obj.about;
-        inputRegistered.value = obj.registered;
-        inputId.value = obj._id;
-        inputTags.value = obj.tags;
+        inputs.each(function () {
+            if (this.type !== 'button') {
+                let atr = this.getAttribute('jsonValue');
+                if (this.getAttribute('jsonValue2')) {
+                    let atr2 = this.getAttribute('jsonValue2');
+                    if (this.getAttribute('jsonValue3')) {
+                        let atr3 = this.getAttribute('jsonValue3');
+                        this.value = `${ obj[atr][atr2]} ${obj[atr][atr3]}`;
+                    } else {
+                        this.value = obj[atr][atr2];
+                    }
+                } else {
+                    this.value = obj[atr];
+                }
+            }
+        });
     }
     modalExecute();
 })
