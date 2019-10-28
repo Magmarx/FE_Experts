@@ -1,11 +1,11 @@
 $(document).ready(function ($) {
-    
+
     //variables obtenidas a partir de elementos
     let posicion = 0,
         objeto,
         longitud;
 
-
+    //Variables que se utilizan para mostrar el carousel
     let buttonGen = document.getElementById('submitGen'),
         buttonDet = document.getElementById('submitDet'),
         detailedLeft = document.getElementById('detailedLeft'),
@@ -20,22 +20,42 @@ $(document).ready(function ($) {
         inputId = document.getElementById('id'),
         inputTags = document.getElementById('tags');
 
+    /**
+     * Declaramos los inputs dinamicos
+     * que se encuentran dentro del formulario detras del modal 
+     * que tiene el id contact-us y estos inputs los utilizamos
+     * dentro de las siguientes funciones que tienen las etiquetas:
+     * @deleteInputValues
+     * @insertJsonInputValues
+     */
+    let inputs = $('#contact-us :input[type=text]');
+    let textareas = $('textarea#tags');
+
     //eventos click
     $(buttonDet).on('click', function () {
-        detailedLeft.style = "display: block;";
-        detailedRight.style = "display: block;";
+        detailedLeft.style = 'display: block;';
+        detailedRight.style = 'display: block;';
         buttonDet.disabled = true;
     });
 
+    //@deleteInputValues
     $(buttonGen).on('click', function () {
         modalExecute();
-        inputName.value = '';
-        inputMail.value = '';
-        inputAddress.value = '';
-        inputAbout.value = '';
-        inputRegistered.value = '';
-        inputId.value = '';
-        inputTags.value = '';
+        // inputName.value = '';
+        // inputMail.value = '';
+        // inputAddress.value = '';
+        // inputAbout.value = '';
+        // inputRegistered.value = '';
+        // inputId.value = '';
+        // inputTags.value = '';
+        inputs.each(function () {
+            this.value = '';
+        });
+
+        console.log(textareas.value)
+        // textareas.each(function () {
+        //     this.value = '';
+        // });
         buttonDet.disabled = false;
         detailedLeft.style = 'display: none;';
         detailedRight.style = 'display: none;';
@@ -87,6 +107,7 @@ $(document).ready(function ($) {
         }
     }
 
+    //@insertJsonInputValues
     let completeForm = (obj) => {
         inputName.value = `${obj.name.first} ${obj.name.last}`;
         inputMail.value = obj.email;
@@ -98,5 +119,3 @@ $(document).ready(function ($) {
     }
     modalExecute();
 })
-
-
