@@ -31,7 +31,7 @@
 
             <!-- Formulario donde se mostraran los Datos -->
             <div class="col">
-                <form>
+                <form id="userForm">
                     <!-- Botones para el cambio de datos dentro del Formulario -->
                     <div class="row text-center">
                         <div class="col">
@@ -49,11 +49,11 @@
                             <div class="col">
                                 <div class="from-group">
                                     <label for="firstName" class="text-light">Nombre</label>
-                                    <input type="text" class="form-control" id="firstName">
+                                    <input type="text" class="form-control" id="firstName" jsonValue="name" jsonObject ="first">
                                 </div>
                                 <div class="from-group">
                                     <label for="lastName" class="text-light">Apellido</label>
-                                    <input type="text" class="form-control" id="lastName">
+                                    <input type="text" class="form-control" id="lastName" jsonValue="name" jsonObject ="last">
                                 </div>
                             </div>
                             <div class="clo">
@@ -64,24 +64,24 @@
                         </div>
                         <div class="from-group">
                             <label for="age" class="text-light">Edad</label>
-                            <input type="text" class="form-control" id="age">
+                            <input type="text" class="form-control" id="age" jsonValue="age">
                         </div>
                         <div class="from-group">
                             <label for="email" class="text-light">Correo Electronico</label>
-                            <input type="email" class="form-control" id="email"> 
+                            <input type="email" class="form-control" id="email" jsonValue="email"> 
                         </div>
                         <div class="from-group">
                             <label for="address" class="text-light">Direccion</label>
-                            <textarea class="form-control" rows="2" id="address">
+                            <textarea class="form-control" rows="2" id="address" jsonValue="address">
                             </textarea>
                         </div>
                         <div class="from-group">
                             <label for="active" class="text-light">Activos</label>
-                            <input type="text" class="form-control" id="active">
+                            <input type="text" class="form-control" id="active" jsonValue="balance">
                         </div>
                         <div class="from-group">
                             <label for="date" class="text-light">Fecha de Registro</label>
-                            <input type="text" class="form-control" id="date">
+                            <input type="text" class="form-control" id="date" jsonValue="registered">
                         </div>
                     </div>
 
@@ -89,23 +89,23 @@
                         <h3 class="text-center">Informacion secundario</h3>
                         <div class="from-group">
                             <label for="colorEyes" class="text-light">Color de Ojos</label>
-                            <input type="text" class="form-control" id="colorEyes">
+                            <input type="text" class="form-control" id="colorEyes" jsonValue="eyeColor">
                         </div>
                         <div class="from-group">
                             <label for="company" class="text-light">Compania</label>
-                            <input type="text" class="form-control" id="company">
+                            <input type="text" class="form-control" id="company" jsonValue="company">
                         </div>
                         <div class="from-group">
                             <label for="phone" class="text-light">Telefono</label>
-                            <input type="text" class="form-control" id="phone">
+                            <input type="text" class="form-control" id="phone" jsonValue="phone">
                         </div>
                         <div class="from-group">
                             <label for="frut" class="text-light">Fruta Favorita</label>
-                            <input type="text" class="form-control" id="frut"> 
+                            <input type="text" class="form-control" id="frut" jsonValue="favoriteFruit"> 
                         </div>
                         <div class="from-group">
                             <label for="person" class="text-light">Acerca de la Persona</label>
-                            <textarea class="form-control" rows="2" id="person">
+                            <textarea class="form-control" rows="2" id="person" jsonValue="greeting">
                             </textarea>
                         </div>
                     </div>

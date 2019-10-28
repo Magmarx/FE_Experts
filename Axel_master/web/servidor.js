@@ -37,41 +37,11 @@ $(document).ready(function(){
     });
 
     $('#JsonButton').on('click', function(){
-        let nameFirst = document.getElementById('firstName'),
-            nameLast = document.getElementById('lastName'),
-            age = document.getElementById('age'),
-            email = document.getElementById('email'),
-            address = document.getElementById('address'),
-            active = document.getElementById('active'),
-            date = document.getElementById('date'),
-            colorEyes = document.getElementById('colorEyes'),
-            company = document.getElementById('company'),
-            phone = document.getElementById('phone'),
-            frut = document.getElementById('frut'),
-            byPerson = document.getElementById('person');
-
-        if(nameFirst.value === "" || nameLast === ""){
-            alert("Los campos estan vacios")
-        }
-        else{
-            let codJson = {
-                    nombre: `${nameFirst.value} ${nameLast.value}`,
-                    años: age.value,
-                    email: email.value,
-                    direccion: address.value,
-                    balance: active.value,
-                    fecha: date.value,
-                    coloOjos: colorEyes.value,
-                    compania: company.value,
-                    Telefono: phone.value,
-                    FrutaFavorita: frut.value,
-                    detallesPersona: byPerson.value
-                };
-                alert(JSON.stringify(codJson));
-        };
+        enviarJSON();
     });
+    
 });
-//funcion que Crea la lista e ingresa Datos
+//funcion que Crea la lista e ingresa Datos @FetchData
 function list(){
     let containerData = document.getElementById('containerData');
     
@@ -105,30 +75,115 @@ function list(){
 };
 //funcion para llenar los Datos del JSON
 function LlenarDatos(data){
-    let nameFirst = document.getElementById('firstName'),
-        nameLast = document.getElementById('lastName'),
-        age = document.getElementById('age'),
-        email = document.getElementById('email'),
-        address = document.getElementById('address'),
-        active = document.getElementById('active'),
-        date = document.getElementById('date'),
-        colorEyes = document.getElementById('colorEyes'),
-        company = document.getElementById('company'),
-        phone = document.getElementById('phone'),
-        frut = document.getElementById('frut'),
-        byPerson = document.getElementById('person');
+    /**
+     * Buscamos los valores inputs dentro del formulario de usuarios
+     * Este necesita una propiedad que se llama jsonValue ya que
+     * lo utilizaremos para poder mapear el valor que venga del
+     * fetch de nuestro json.
+     * 
+     * El fetch se ejecuta en la funcion con la etiqueta @FetchData
+     */
+    let inputs = $("#userForm :input");
 
-        nameFirst.value = data.name.first;
-        nameLast.value = data.name.last;
-        age.value = data.age;
-        email.value = data.email;
-        address.innerText = data.address;
-        active.value = data.balance;
-        date.value = data.registered;
-        colorEyes.value = data.eyeColor;
-        company.value = data.company;
-        phone.value = data.phone;
-        frut.value = data.favoriteFruit;
-        byPerson.innerText = data.greeting;
-        // console.log('Datos' + nameFirst)
+    inputs.each(function() {
+        if (this.getAttribute("jsonValue")) {
+            if (typeof data[this.getAttribute("jsonValue")] === 'object') {
+                this.value = data[this.getAttribute("jsonValue")][this.getAttribute("jsonObject")];    
+            } else {
+                this.value = data[this.getAttribute("jsonValue")];
+            }
+        } else {
+            // jsonValue
+            console.warn(`Para mapear los datos del input ${this.id} agregar la propiedad jsonValue`)
+        }
+    });
 };
+//enviar JSON de froma Dinamica
+function enviarJSON() {
+    let jsonEnviar = new Object,
+        jsonDos = new Object;;
+
+    let inputs = $("#userForm :input");
+
+    inputs.each(function() {
+        if (this.getAttribute("jsonValue")) {
+            if (this.getAttribute("jsonObject")) {
+                jsonEnviar[this.getAttribute("jsonValue")] = jsonDos;
+                jsonDos[this.getAttribute("jsonObject")] = this.value;
+            } else {
+                jsonEnviar[this.getAttribute("jsonValue")] = this.value;
+            }
+        } else {
+            // jsonValue
+            console.warn(`Para mapear los datos del input ${this.id} agregar la propiedad jsonValue`)
+        };
+    });
+    alert(JSON.stringify(jsonEnviar));
+    // console.log(jsonEnviar);
+};
+/**
+ * Codigo para mostrar de forma estandar
+ */
+// let nameFirst = document.getElementById('firstName'),
+//     nameLast = document.getElementById('lastName'),
+//     age = document.getElementById('age'),
+//     email = document.getElementById('email'),
+//     address = document.getElementById('address'),
+//     active = document.getElementById('active'),
+//     date = document.getElementById('date'),
+//     colorEyes = document.getElementById('colorEyes'),
+//     company = document.getElementById('company'),
+//     phone = document.getElementById('phone'),
+//     frut = document.getElementById('frut'),
+//     byPerson = document.getElementById('person');
+
+//     nameFirst.value = data.name.first;
+//     nameLast.value = data.name.last;
+//     //age.value = data.age;
+//     email.value = data.email;
+//     address.innerText = data.address;
+//     active.value = data.balance;
+//     date.value = data.registered;
+//     colorEyes.value = data.eyeColor;
+//     company.value = data.company;
+//     phone.value = data.phone;
+//     frut.value = data.favoriteFruit;
+//     byPerson.innerText = data.greeting;
+//     // console.log('Datos' + nameFirst);
+
+
+/**
+ * codigo para enviar el JSON forma Estandar
+ *     let nameFirst = document.getElementById('firstName'),
+            nameLast = document.getElementById('lastName'),
+            age = document.getElementById('age'),
+            email = document.getElementById('email'),
+            address = document.getElementById('address'),
+            active = document.getElementById('active'),
+            date = document.getElementById('date'),
+            colorEyes = document.getElementById('colorEyes'),
+            company = document.getElementById('company'),
+            phone = document.getElementById('phone'),
+            frut = document.getElementById('frut'),
+            byPerson = document.getElementById('person');
+
+        if (nameFirst.value === "" || nameLast === "") {
+            alert("Los campos estan vacios")
+        } else {
+            let codJson = {
+                nombre: `${nameFirst.value} ${nameLast.value}`,
+                años: age.value,
+                email: email.value,
+                direccion: address.value,
+                balance: active.value,
+                fecha: date.value,
+                coloOjos: colorEyes.value,
+                compania: company.value,
+                Telefono: phone.value,
+                FrutaFavorita: frut.value,
+                detallesPersona: byPerson.value
+            };
+            alert(JSON.stringify(codJson));
+        };
+    });
+ */
